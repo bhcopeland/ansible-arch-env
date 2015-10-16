@@ -1,22 +1,22 @@
 ---
 - name: create user
   user:
-    name: "{{user_name}}"
+    name: "{{system_username}}"
     password: "{{user_password}}"
-    groups:
-      - printadmin
-      - docker
-      - wheel
-      - users
-      - lp # printers
+    state: present
+    groups: printadmin,docker,wheel,users,lp
+    append: yes
     shell: /bin/zsh
+  register: result
+  sudo: yes
+  when: user_password.0 is defined
 
 - name: create default directories
   file:
-    dest: "/home/{{user_name}}/{{item}}"
+    dest: "/home/{{system_username}}/{{item}}"
     state: directory
-    owner: "{{user_name}}"
-    group: "{{user_name}}"
+    owner: "{{system_username}}"
+    group: "{{system_group}}"
   with_items:
     - Downloads
     - Photos

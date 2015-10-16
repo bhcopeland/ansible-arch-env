@@ -4,9 +4,11 @@
     name: "{{item}}"
     state: started
     enabled: yes
+  sudo: yes
   with_items:
     - ntpd
     - dhcpcd
-    - cups
     - cups-browsed
     - avahi-daemon
+    - lightdm
+    - fancontrol

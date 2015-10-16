@@ -1,0 +1,11 @@
+---
+    - name: setup owncloud
+      command: owncloudcmd --user {{owncloud_username}} --password {{owncloud_password}} --non-interactive --trust $HOME/.local/share/data/ownCloud https://bcc.linaro.org/owncloud
+      when: owncloud_password.0 is defined
+      register: setup_owncloud
+
+    - name: launch ownCloud
+      command: owncloud
+      when: setup_owncloud|changed
+      ignore_errors: yes
+      sudo_user: "{{system_username}}"
