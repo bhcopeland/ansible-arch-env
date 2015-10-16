@@ -1,0 +1,24 @@
+---
+- name: create user
+  user:
+    name: "{{user_name}}"
+    password: "{{user_password}}"
+    groups:
+      - printadmin
+      - docker
+      - wheel
+      - users
+      - lp # printers
+    shell: /bin/zsh
+
+- name: create default directories
+  file:
+    dest: "/home/{{user_name}}/{{item}}"
+    state: directory
+    owner: "{{user_name}}"
+    group: "{{user_name}}"
+  with_items:
+    - Downloads
+    - Photos
+    - Music
+    - Templates

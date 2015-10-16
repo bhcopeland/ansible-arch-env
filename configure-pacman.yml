@@ -1,0 +1,185 @@
+---
+# Download an up-to-date pacman mirror list for Europe
+# add multilib and infinality (fonts) repositories
+# install base packages
+
+- name: "download pacman mirror list"
+  get_url:
+    url: "https://www.archlinux.org/mirrorlist/?country=FR&country=DE&country=IE&country=LU&country=CH&country=GB&protocol=http&ip_version=4&ip_version=6&use_mirror_status=on"
+    dest: "/etc/pacman.d/mirrorlist"
+
+- name: "uncomment `#Server` in pacman mirror list"
+  replace:
+    dest: "/etc/pacman.d/mirrorlist"
+    regexp: '^#Server'
+    replace: 'Server'
+
+- name: "add multilib"
+  lineinfile:
+    dest: "/etc/pacman.conf"
+    state: "present"
+    line: "[multilib]"
+    regexp: "^\\[multilib\\]"
+    insertafter: "^#\\[multilib\\]"
+
+- name: "add multilib (cont)"
+  lineinfile:
+    dest: "/etc/pacman.conf"
+    state: "present"
+    line: "Include = /etc/pacman.d/mirrorlist"
+    insertafter: "^\\[multilib\\]"
+    regexp: "Include = /etc/pacman.d/mirrorlist"
+
+- name: "add infinality-bundle key"
+  shell: "pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58"
+  changed_when: false
+  sudo: yes
+
+- name: "add infinality-bundle" # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
+  lineinfile:
+    dest: "/etc/pacman.conf"
+    state: "present"
+    line: "[infinality-bundle]"
+  sudo: yes
+
+- name: "add infinality-bundle (cont)"
+  lineinfile:
+    dest: "/etc/pacman.conf"
+    state: "present"
+    line: "Server = http://bohoomil.com/repo/$arch"
+    insertafter: "^\\[infinality\\-bundle\\]"
+  sudo: yes
+
+- name: "add infinality-bundle-fonts" # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
+  lineinfile:
+    dest: "/etc/pacman.conf"
+    state: "present"
+    line: "[infinality-bundle-fonts]"
+  sudo: yes
+
+- name: "add infinality-bundle-fonts (cont)"
+  lineinfile:
+    dest: "/etc/pacman.conf"
+    state: "present"
+    line: "Server = http://bohoomil.com/repo/fonts"
+    insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
+  sudo: yes
+
+- name: install packages
+  pacman:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  sudo: yes
+  with_items:
+# system packages
+    - curl
+    - htop
+    - iotop
+    - powertop
+    - glances
+    - git
+    - vim
+    - sudo
+    - zsh
+    - downgrade
+    - udiskie
+    - avahi
+    - xbindkeys
+    - tlp
+    - acpi
+    - acpid
+    - alsa-utils
+    - keychain
+    - rsync
+    - ntp
+    - smartmontools
+    - strace
+    - dhcpcd
+    - dhclient
+    - diffutils
+    - lm_sensors
+    - jdk8-openjdk
+    - fuse-exfat
+    - nfs-utils
+    - logrotate
+    - openssh
+# display packages
+    - xorg-xbacklight
+    - xorg-xsetroot
+    - xorg-server
+    - xorg-server-devel
+    - arandr
+    - xorg-xinit
+    - lightdm
+    - lightdm-gtk-greeter
+
+# window manager packages
+    - i3-wm
+    - i3lock
+    - i3status
+    - xfce4-notifyd
+
+# compression packages
+    - zip
+    - unzip
+    - unrar
+    - bzip2
+    - gzip
+    - tar
+
+# virtualization packages
+    - docker
+
+# file packages
+    - thunar
+    - thunar-media-tags-plugin
+    - thunar-archive-plugin
+    - ranger
+    - libgphoto2 #gphoto2
+    - gvfs gvfs-gphoto2 gvfs-mtp gvfs-smb # have to be bundled together as they depend on each other
+
+# office packages
+    - libreoffice-fresh
+    - gthumb
+    - owncloud
+    - chromium
+    - transmission-qt
+
+# printing packages
+    - cups
+
+# chat packages
+    - pidgin
+    - skype
+    - weechat
+
+# font packages
+    - freetype2-infinality-ultimate
+    - fontconfig-infinality-ultimate
+    - cairo-infinality-ultimate
+
+# gaming/streaming packages
+    - steam
+    - vlc
+    - kodi
+
+# terminal tools packages
+    - gist
+    - ncdu
+    - xsel
+    - ranger
+    - dos2unix
+    - grml-zsh-config
+
+# python packages
+    - python2
+    - ipython2
+    - python2-virtualenv
+    - python2-pip
+ # Python3
+    - python
+    - python-virtualenv
+    - ipython
+    - python-pip
+
