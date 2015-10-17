@@ -1,0 +1,10 @@
+---
+
+- name: copy xorg.conf laptop
+  copy: src=./files/xorg-laptop.conf
+        dest=/etc/X11/xorg.conf
+        owner=root
+        group=root
+        mode=0644
+  when: configure_intel.0 is defined
+  sudo: yes

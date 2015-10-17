@@ -3,7 +3,7 @@
 # add multilib and infinality (fonts) repositories
 # install base packages
 
-- name: "download pacman mirror list"
+- name: download pacman mirror list
   get_url:
     url: "https://www.archlinux.org/mirrorlist/?country=FR&country=DE&country=IE&country=LU&country=CH&country=GB&protocol=http&ip_version=4&ip_version=6&use_mirror_status=on"
     dest: "/etc/pacman.d/mirrorlist"
@@ -14,58 +14,87 @@
     regexp: '^#Server'
     replace: 'Server'
 
-- name: "add multilib"
+- name: add multilib
   lineinfile:
-    dest: "/etc/pacman.conf"
+    dest: /etc/pacman.conf
     state: "present"
     line: "[multilib]"
     regexp: "^\\[multilib\\]"
     insertafter: "^#\\[multilib\\]"
 
-- name: "add multilib (cont)"
+- name: add multilib (cont)
   lineinfile:
-    dest: "/etc/pacman.conf"
+    dest: /etc/pacman.conf
     state: "present"
     line: "Include = /etc/pacman.d/mirrorlist"
     insertafter: "^\\[multilib\\]"
     regexp: "Include = /etc/pacman.d/mirrorlist"
 
-- name: "add infinality-bundle key"
+- name: add infinality-bundle key
   shell: "pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58"
   changed_when: false
   sudo: yes
 
-- name: "add infinality-bundle" # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
+- name: add infinality-bundle # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
   lineinfile:
-    dest: "/etc/pacman.conf"
+    dest: /etc/pacman.conf
     state: "present"
     line: "[infinality-bundle]"
   sudo: yes
 
-- name: "add infinality-bundle (cont)"
+- name: add infinality-bundle (cont)
   lineinfile:
-    dest: "/etc/pacman.conf"
-    state: "present"
+    dest: /etc/pacman.conf
+    state: present
     line: "Server = http://bohoomil.com/repo/$arch"
     insertafter: "^\\[infinality\\-bundle\\]"
   sudo: yes
 
-- name: "add infinality-bundle-fonts" # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
+- name: add infinality-bundle-fonts # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
   lineinfile:
-    dest: "/etc/pacman.conf"
-    state: "present"
+    dest: /etc/pacman.conf
+    state: present
     line: "[infinality-bundle-fonts]"
   sudo: yes
 
-- name: "add infinality-bundle-fonts (cont)"
+- name: add infinality-bundle-fonts (cont)
   lineinfile:
-    dest: "/etc/pacman.conf"
-    state: "present"
+    dest: /etc/pacman.conf
+    state: present
     line: "Server = http://bohoomil.com/repo/fonts"
     insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
   sudo: yes
+  when: configure_catalyst.0 is defined
 
-- name: install packages
+### Catalyst
+- name: add catalyst key Vi0l0
+  shell: "pacman-key -r 653C3094 && pacman-key --lsign-key 653C3094"
+  changed_when: false
+  when: configure_catalyst.0 is defined
+  sudo: yes
+
+# https://wiki.archlinux.org/index.php/Unofficial_user_repositories#catalyst
+# https://wiki.archlinux.org/index.php/AMD_Catalyst#Xorg_repositories
+- name: add catalyst and xorg
+  sudo: yes
+  when: configure_catalyst.0 is defined
+  blockinfile:
+    dest: /etc/pacman.conf
+    insertbefore: "^\\[core\\]"
+    block: |
+      [catalyst]
+      Server = http://catalyst.wirephire.com/repo/catalyst/$arch
+      ## Mirrors, if the primary server does not work or is too slow:
+      #Server = http://70.239.162.206/catalyst-mirror/repo/catalyst/$arch
+      #Server = http://mirror.rts-informatique.fr/archlinux-catalyst/repo/catalyst/$arch
+      #Server = http://mirror.hactar.bz/Vi0L0/catalyst/$arch
+      [xorg116]
+      Server = http://catalyst.wirephire.com/repo/xorg116/$arch
+      ## Mirrors, if the primary server does not work or is too slow:
+      Server = http://mirror.rts-informatique.fr/archlinux-catalyst/repo/xorg116/$arch
+      Server = http://mirror.hactar.bz/Vi0L0/xorg116/$arch
+
+- name: install pacman packages
   pacman:
     name: "{{item}}"
     state: latest

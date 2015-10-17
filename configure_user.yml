@@ -1,15 +1,16 @@
 ---
+
 - name: create user
   user:
     name: "{{system_username}}"
-    password: "{{user_password}}"
+    password: "{{user_password|password_hash('sha512') }}"
     state: present
-    groups: printadmin,docker,wheel,users,lp
+    groups: "printadmin,docker,wheel,users,lp"
     append: yes
     shell: /bin/zsh
-  register: result
+    update_password: always
   sudo: yes
-  when: user_password.0 is defined
+
 
 - name: create default directories
   file:

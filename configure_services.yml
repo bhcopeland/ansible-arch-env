@@ -1,4 +1,14 @@
 ---
+
+- name: copy fancontrol desktop
+  copy: src=./files/fancontrol-desktop
+        dest=/etc/fancontrol
+        owner=root
+        group=root
+        mode=0644
+  sudo: yes
+  when: configure_catalyst.0 is defined
+
 - name: enable default services
   service:
     name: "{{item}}"

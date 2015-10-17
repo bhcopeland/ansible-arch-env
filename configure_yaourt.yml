@@ -13,3 +13,16 @@
   pacman:
     name: yaourt
     state: latest
+
+# - name: install yaourt packages
+#   pacman:
+#     name: "{{item}}"
+#     state: latest
+#     aur: yes
+#   sudo: yes
+#   register: rawr
+#   ignore_errors: yes
+#   with_items:
+#     - oh-my-zsh-git
+#     - clementine-git
+# - debug: var=rawr

@@ -1,0 +1,35 @@
+---
+
+- name: install catalyst dependencies
+  pacman:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  sudo: yes
+  with_items:
+    - catalyst-hook
+    - catalyst-libgl
+    - catalyst-utils
+    # Optional
+    - opencl-catalyst
+    - lib32-catalyst-utils
+    - lib32-catalyst-libgl
+    - lib32-opencl-catalyst
+
+- name: copy xorg.conf catalyst/desktop
+  copy: src=./files/xorg-desktop.conf
+        dest=/etc/X11/xorg.conf
+        owner=root
+        group=root
+        mode=0644
+  when: configure_catalyst.0 is defined
+  sudo: yes
+
+- name: enable catalyst services
+  service:
+    name: "{{item}}"
+    state: started
+    enabled: yes
+  sudo: yes
+  with_items:
+    - catalyst-hook
