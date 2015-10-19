@@ -17,11 +17,12 @@
     - lib32-opencl-catalyst
 
 - name: copy xorg.conf catalyst/desktop
-  copy: src=./files/xorg-desktop.conf
-        dest=/etc/X11/xorg.conf
-        owner=root
-        group=root
-        mode=0644
+  copy:
+    src: "files/etc/xorg-desktop.conf"
+    dest: /etc/X11/xorg.conf
+    owner: root
+    group: root
+    mode: 0644
   when: configure_catalyst.0 is defined
   sudo: yes
 

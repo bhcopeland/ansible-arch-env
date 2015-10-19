@@ -1,6 +1,7 @@
 ---
 # Download an up-to-date pacman mirror list for Europe
 # add multilib and infinality (fonts) repositories
+# install catalyst drivers, when configure_catalyst is defined
 # install base packages
 
 - name: download pacman mirror list
@@ -64,7 +65,6 @@
     line: "Server = http://bohoomil.com/repo/fonts"
     insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
   sudo: yes
-  when: configure_catalyst.0 is defined
 
 ### Catalyst
 - name: add catalyst key Vi0l0
@@ -100,6 +100,7 @@
     state: latest
     update_cache: yes
   sudo: yes
+  when: setup_packages.0 is defined
   with_items:
 # system packages
     - curl
@@ -142,6 +143,7 @@
     - xorg-xinit
     - lightdm
     - lightdm-gtk-greeter
+    - redshift
 
 # window manager packages
     - i3-wm
@@ -174,6 +176,7 @@
     - owncloud
     - chromium
     - transmission-qt
+    - keepass
 
 # printing packages
     - cups
@@ -188,10 +191,11 @@
     - fontconfig-infinality-ultimate
     - cairo-infinality-ultimate
 
-# gaming/streaming packages
+# gaming/video streaming packages
     - steam
     - vlc
     - kodi
+    - plex-home-theater
 
 # terminal tools packages
     - gist

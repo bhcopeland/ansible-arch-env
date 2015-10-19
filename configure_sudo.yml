@@ -1,4 +1,14 @@
 ---
-- name: remove commented out "wheel" from sudoers
+- name: Allow group "wheel" to have sudoless root
   lineinfile: "dest=/etc/sudoers state=present regexp='^%wheel' line='%wheel ALL=(ALL) NOPASSWD: ALL' validate='visudo -cf %s'"
+  sudo: yes
+
+- name: Ensure zabbix is added to sudoers.d
+  file:
+    src: etc/file/sudoers.d/zabbix
+    dest: /etc/sudoers.d/zabbix
+    mode: 0440
+    owner: root
+    group: root
+    validate: "/usr/sbin/visudo -cf %s"
   sudo: yes

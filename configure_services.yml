@@ -1,13 +1,22 @@
 ---
 
-- name: copy fancontrol desktop
-  copy: src=./files/fancontrol-desktop
+- name: copy fancontrol for desktop
+  copy: src=./files/etc/fancontrol-desktop
         dest=/etc/fancontrol
         owner=root
         group=root
         mode=0644
   sudo: yes
-  when: configure_catalyst.0 is defined
+  when: configure_catalyst.0 is defined # Since I only run fancontrol on desktop, which runs catalyst...
+
+- name: copy sysctl.d settings
+  copy: src=./files/etc/sysctl.d/99-sysctl.conf
+        dest=/etc/sysctl.d/99-sysctl.conf
+        owner=root
+        group=root
+        mode=0644
+  sudo: yes
+  when: configure_catalyst.0 is defined # Since I only run fancontrol on desktop, which runs catalyst...
 
 - name: enable default services
   service:

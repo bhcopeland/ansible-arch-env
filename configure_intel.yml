@@ -1,10 +1,14 @@
 ---
 
-- name: copy xorg.conf laptop
-  copy: src=./files/xorg-laptop.conf
-        dest=/etc/X11/xorg.conf
-        owner=root
-        group=root
-        mode=0644
-  when: configure_intel.0 is defined
+- name: copy xorg.conf.d for laptop
+  copy:
+    src: "files/etc/xorg.conf.d/laptop/{{item}}"
+    dest: "/etc/X11/xorg.conf.d/{{item}}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - 20-intel.conf
+    - 30-whatpulse-touchpad-rules.conf
+    - 50-synaptics.conf
   sudo: yes

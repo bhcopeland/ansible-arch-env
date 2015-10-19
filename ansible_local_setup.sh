@@ -9,29 +9,30 @@
      - secrets.yml
    vars_prompt:
      configure_catalyst: "Configure Catalyst?"
-     configure_laptop: "Configure Intel?"
+     configure_intel: "Configure Intel (laptop)?"
      setup_packages: "Setup pacman/yaourt?"
+     setup_owncloud: "Setup owncloud?"
 
    tasks:
       - name: configure pacman/packages
         include: configure_pacman.yml
-        when: setup_packages.0 is defined
 
       - name: configure yaort
         include: configure_yaourt.yml
         when: setup_packages.0 is defined
 
-      - name: configure bootup services and files
+      - name: configure sytsemd services and etc files
         include: configure_services.yml
 
-      - name: username setup
+      - name: user account and folder creation
         include: configure_user.yml
 
-      - name: sudo setup
+      - name: congiure sudo users
         include: configure_sudo.yml
 
       - name: configure owncloud client
         include: configure_owncloud.yml
+        when: setup_owncloud.0 is defined
 
       - name: configure catalyst (desktop)
         include: configure_catalyst.yml

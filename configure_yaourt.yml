@@ -14,15 +14,35 @@
     name: yaourt
     state: latest
 
-# - name: install yaourt packages
-#   pacman:
-#     name: "{{item}}"
-#     state: latest
-#     aur: yes
-#   sudo: yes
-#   register: rawr
-#   ignore_errors: yes
-#   with_items:
-#     - oh-my-zsh-git
-#     - clementine-git
-# - debug: var=rawr
+- name: install yaourt packages (this can take some time...)
+  pacman:
+    name: "{{item}}"
+    state: latest
+    aur: yes
+  with_items:
+    - oh-my-zsh-git
+    - clementine-git
+    - apacheDirectoryStudio
+    - xfce4-volumed
+    - caffeine-oneclick
+    - conkyclementine-bzr
+    - i3lock-wrapper
+    - keepass-plugin-http
+    - pycharm-community
+    - python2-cli53
+    - screencloud
+    - skype4pidgin-svn
+    - solaar
+    - spotify
+    - sublime-text-dev
+    - teamviewer
+    - whatpulse
+    - zabbix-agent
+    - numix-circle-icon-theme-git
+    - numix-icon-theme-git
+    - google-talkplugin
+    - vim-youcompleteme-git
+    - j4-dmenu-desktop
+    - chromium-pepper-flash
+    - backintime-cli
+    - backintime
