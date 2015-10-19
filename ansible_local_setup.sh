@@ -21,7 +21,7 @@
         include: configure_yaourt.yml
         when: setup_packages.0 is defined
 
-      - name: configure sytsemd services and etc files
+      - name: configure systemd services and etc files
         include: configure_services.yml
 
       - name: user account and folder creation
