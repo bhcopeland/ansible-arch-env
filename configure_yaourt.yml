@@ -1,13 +1,4 @@
 ---
-- name: add archlinuxfr repository to pacman
-  lineinfile:
-    dest: /etc/pacman.conf
-    state: present
-    line: "{{ item }}"
-  with_items:
-    - "[archlinuxfr]"
-    - "SigLevel = Never"
-    - "Server = http://repo.archlinux.fr/$arch"
 
 - name: install yaourt
   pacman:
@@ -19,22 +10,21 @@
     name: "{{item}}"
     state: latest
     aur: yes
+  ignore_errors: yes
   with_items:
     - oh-my-zsh-git
-    - clementine-git
-    - apacheDirectoryStudio
+    - apachedirectorystudio
     - xfce4-volumed
-    - caffeine-oneclick
+    - caffeine-ng
     - conkyclementine-bzr
     - i3lock-wrapper
     - keepass-plugin-http
     - pycharm-community
     - python2-cli53
     - screencloud
-    - skype4pidgin-svn
+    - skype4pidgin-git
     - solaar
     - spotify
-    - sublime-text-dev
     - teamviewer
     - whatpulse
     - zabbix-agent

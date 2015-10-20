@@ -10,16 +10,17 @@
    vars_prompt:
      configure_catalyst: "Configure Catalyst?"
      configure_intel: "Configure Intel (laptop)?"
-     setup_packages: "Setup pacman/yaourt?"
+     setup_packages: "Setup pacman?"
+     setup_yaourt: "Setup yaourt?"
      setup_owncloud: "Setup owncloud?"
 
    tasks:
       - name: configure pacman/packages
         include: configure_pacman.yml
 
-      - name: configure yaort
+      - name: configure yaourt
         include: configure_yaourt.yml
-        when: setup_packages.0 is defined
+        when: setup_yaourt.0 is defined
 
       - name: configure systemd services and etc files
         include: configure_services.yml

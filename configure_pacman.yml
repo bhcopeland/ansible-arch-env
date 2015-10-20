@@ -15,6 +15,8 @@
     regexp: '^#Server'
     replace: 'Server'
 
+# Enable multilib
+
 - name: add multilib
   lineinfile:
     dest: /etc/pacman.conf
@@ -30,6 +32,8 @@
     line: "Include = /etc/pacman.d/mirrorlist"
     insertafter: "^\\[multilib\\]"
     regexp: "Include = /etc/pacman.d/mirrorlist"
+
+## infinality font bundle
 
 - name: add infinality-bundle key
   shell: "pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58"
@@ -65,6 +69,18 @@
     line: "Server = http://bohoomil.com/repo/fonts"
     insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
   sudo: yes
+
+## Yaourt
+
+- name: add archlinuxfr repository to pacman
+  lineinfile:
+    dest: /etc/pacman.conf
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - "[archlinuxfr]"
+    - "SigLevel = Never"
+    - "Server = http://repo.archlinux.fr/$arch"
 
 ### Catalyst
 - name: add catalyst key Vi0l0
@@ -177,6 +193,7 @@
     - chromium
     - transmission-qt
     - keepass
+    - sublime-text-dev # archlinuxfr
 
 # printing packages
     - cups
@@ -191,11 +208,12 @@
     - fontconfig-infinality-ultimate
     - cairo-infinality-ultimate
 
-# gaming/video streaming packages
+# gaming/video/music packages
     - steam
     - vlc
     - kodi
     - plex-home-theater
+    - clementime
 
 # terminal tools packages
     - gist

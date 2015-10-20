@@ -63,6 +63,7 @@
     dest: "/home/{{system_username}}/.config/{{ item.path }}"
     state: link
   with_items:
+    - { path: 'backintime' }
     - { path: 'sublime-text-2' }
     - { path: 'sublime-text-3' }
     - { path: 'terminator'}
@@ -71,3 +72,4 @@
     - { path: 'Clementine' }
     - { path: 'caffeine' }
     - { path: 'spotify' }
+    - { path: 'screencloud' }
