@@ -4,8 +4,8 @@
   sudo: yes
 
 - name: Ensure zabbix is added to sudoers.d
-  file:
-    src: etc/file/sudoers.d/zabbix
+  copy:
+    src: files/etc/sudoers.d/zabbix
     dest: /etc/sudoers.d/zabbix
     mode: 0440
     owner: root

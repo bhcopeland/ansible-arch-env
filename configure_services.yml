@@ -28,6 +28,6 @@
     - ntpd
     - dhcpcd
     - cups-browsed
-    - avahi-daemon
+#    - avahi-daemon
     - lightdm
     - fancontrol

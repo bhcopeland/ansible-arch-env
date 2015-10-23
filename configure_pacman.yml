@@ -81,8 +81,9 @@
     - "[archlinuxfr]"
     - "SigLevel = Never"
     - "Server = http://repo.archlinux.fr/$arch"
+  sudo: yes
 
-### Catalyst
+## Catalyst
 - name: add catalyst key Vi0l0
   shell: "pacman-key -r 653C3094 && pacman-key --lsign-key 653C3094"
   changed_when: false
@@ -163,7 +164,7 @@
 
 # window manager packages
     - i3-wm
-    - i3lock
+#    - i3lock
     - i3status
     - xfce4-notifyd
 
@@ -213,7 +214,11 @@
     - vlc
     - kodi
     - plex-home-theater
-    - clementime
+    - clementine
+    - gstreamer0.10-base-plugins
+    - gstreamer0.10-good-plugins
+    - gstreamer0.10-bad-plugins
+    - gstreamer0.10-ugly-plugins
 
 # terminal tools packages
     - gist
