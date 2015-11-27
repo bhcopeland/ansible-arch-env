@@ -105,11 +105,11 @@
       #Server = http://70.239.162.206/catalyst-mirror/repo/catalyst/$arch
       #Server = http://mirror.rts-informatique.fr/archlinux-catalyst/repo/catalyst/$arch
       #Server = http://mirror.hactar.bz/Vi0L0/catalyst/$arch
-      [xorg116]
-      Server = http://catalyst.wirephire.com/repo/xorg116/$arch
+      [xorg117]
+      Server = http://catalyst.wirephire.com/repo/xorg117/$arch
       ## Mirrors, if the primary server does not work or is too slow:
-      Server = http://mirror.rts-informatique.fr/archlinux-catalyst/repo/xorg116/$arch
-      Server = http://mirror.hactar.bz/Vi0L0/xorg116/$arch
+      Server = http://mirror.rts-informatique.fr/archlinux-catalyst/repo/xorg117/$arch
+      Server = http://mirror.hactar.bz/Vi0L0/xorg117/$arch
 
 - name: install pacman packages
   pacman:
@@ -202,7 +202,8 @@
 # chat packages
     - pidgin
     - skype
-    - weechat
+#    - weechat
+
 
 # font packages
     - freetype2-infinality-ultimate
@@ -213,12 +214,13 @@
     - steam
     - vlc
     - kodi
-    - plex-home-theater
-    - clementine
-    - gstreamer0.10-base-plugins
-    - gstreamer0.10-good-plugins
-    - gstreamer0.10-bad-plugins
-    - gstreamer0.10-ugly-plugins
+    - ncmpcpp
+    - mpd
+    - mpc
+#    - gstreamer0.10-base-plugins
+#    - gstreamer0.10-good-plugins
+#    - gstreamer0.10-bad-plugins
+#    - gstreamer0.10-ugly-plugins
 
 # terminal tools packages
     - gist
