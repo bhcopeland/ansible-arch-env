@@ -5,7 +5,7 @@
     name: "{{system_username}}"
     password: "{{user_password|password_hash('sha512') }}"
     state: present
-    groups: "printadmin,docker,wheel,users,lp"
+    groups: "docker,wheel,users,lp"
     append: yes
     shell: /bin/zsh
     update_password: always
@@ -22,6 +22,7 @@
     - Downloads
     - Photos
     - Music
+    - ownCloud
 
 - name: copy Templates folder
   copy:
@@ -30,46 +31,3 @@
     owner: "{{system_username}}"
     group: "{{system_group}}"
     mode: 0644
-
-- name: setup dotfile symlinks /home/username/.dotfile
-  file:
-    src: "/home/{{system_username}}/ownCloud/dotfiles/{{ item.path }}"
-    dest: "/home/{{system_username}}/{{ item.path }}"
-    state: link
-  with_items:
-    - { path: '.zshrc' }
-    - { path: '.vimrc' }
-    - { path: '.screenlayout' }
-    - { path: '.i3' }
-    - { path: '.weechat' }
-    - { path: '.purple' }
-    - { path: '.ssh'}
-    - { path: '.boto' }
-
-- name: setup path symlinks /home/username/
-  file:
-    src: "/home/{{system_username}}/ownCloud/{{ item.path }}"
-    dest: "/home/{{system_username}}/{{ item.dest }}"
-    state: link
-  with_items:
-    - { path: 'Documents', dest: 'Documents' }
-    - { path: 'linaro/linaro-its-tools', dest: 'linaro-its-tools' }
-    - { path: 'Scripts', dest: 'Scripts' }
-    - { path: 'GitHub', dest: 'GitHub' }
-
-- name: setup path symlinks /home/username/.config
-  file:
-    src: "/home/{{system_username}}/ownCloud/config/{{ item.path }}"
-    dest: "/home/{{system_username}}/.config/{{ item.path }}"
-    state: link
-  with_items:
-    - { path: 'backintime' }
-    - { path: 'sublime-text-2' }
-    - { path: 'sublime-text-3' }
-    - { path: 'terminator'}
-    - { path: 'KeePass' }
-    - { path: 'transmission' }
-    - { path: 'Clementine' }
-    - { path: 'caffeine' }
-    - { path: 'spotify' }
-    - { path: 'screencloud' }

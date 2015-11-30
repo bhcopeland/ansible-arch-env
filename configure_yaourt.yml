@@ -1,24 +1,37 @@
 ---
+## Yaourt
+
+- name: add archlinuxfr repository to pacman
+  lineinfile:
+    dest: /etc/pacman.conf
+    state: present
+    line: "{{ item }}"
+  with_items:
+    - "[archlinuxfr]"
+    - "SigLevel = Never"
+    - "Server = http://repo.archlinux.fr/$arch"
+  sudo: yes
 
 - name: install yaourt
   pacman:
     name: yaourt
     state: latest
+    update_cache: yes
+
+  sudo: yes
 
 - name: install yaourt packages (this can take some time...)
-  pacman:
+  yaourt:
     name: "{{item}}"
     state: latest
-    aur: yes
   ignore_errors: yes
   with_items:
     - oh-my-zsh-git
     - apachedirectorystudio
     - xfce4-volumed
     - caffeine-ng
-    - conkyclementine-bzr
+ #   - conkyclementine-bzr
     - i3lock-wrapper
-    - i3lock-blur
     - keepass-plugin-http
     - pycharm-community
     - python2-cli53
@@ -32,8 +45,9 @@
     - numix-circle-icon-theme-git
     - numix-icon-theme-git
     - google-talkplugin
-    - vim-youcompleteme-git
-    - j4-dmenu-desktop
+ #   - vim-youcompleteme-git
     - chromium-pepper-flash
-    - backintime-cli
-    - backintime
+    # - backintime-cli
+    # - backintime
+    - ttf-font-awesome
+    - mpdscribble

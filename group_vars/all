@@ -2,3 +2,6 @@
 system_username: ben
 system_group: users
 owncloud_username: bhcopeland
+
+root_user: root
+root_group: root

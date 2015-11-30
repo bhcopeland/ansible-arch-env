@@ -1,0 +1,25 @@
+# See: /usr/share/doc/mpd/mpdconf.example
+
+pid_file "/run/mpd/mpd.pid"
+db_file "/var/lib/mpd/mpd.db"
+state_file "/var/lib/mpd/mpdstate"
+playlist_directory "/var/lib/mpd/playlists"
+music_directory "/media/nfs/shares/Music"
+
+bind_to_address "any"
+log_level "verbose"
+
+input {
+        plugin  "curl"
+        verify_peer "no"
+        verify_host "no"
+
+}
+
+audio_output {
+        type            "alsa"
+        name            "Xonar DX"
+#        options                 "dev=dmixer"
+#        device                  "plug:dmix"
+}
+

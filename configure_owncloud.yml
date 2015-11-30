@@ -1,11 +1,100 @@
 ---
 
-- name: setup owncloud
-  command: "owncloudcmd --user {{owncloud_username}} --password {{owncloud_password}} --non-interactive --trust $HOME/.local/share/data/ownCloud https://bcc.linaro.org/owncloud"
-  register: setup_owncloud
+# - name: setup owncloud
+#   command: "owncloudcmd --user {{owncloud_username}} --password {{owncloud_password}} --non-interactive --trust /home/ben/ownCloud https://bcc.linaro.org/owncloud"
+#   register: setup_owncloud
 
-- name: launch ownCloud
-  command: "owncloud &"
-  when: setup_owncloud|changed
-  ignore_errors: yes
-  sudo_user: "{{system_username}}"
+# - name: launch ownCloud
+#   command: "owncloud &"
+#   when: setup_owncloud|changed
+#   ignore_errors: yes
+#   sudo_user: "{{system_username}}"
+
+- name: setup dotfile symlinks /home/username/.dotfile
+  file:
+    src: "/home/{{system_username}}/ownCloud/dotfiles/{{ item.path }}"
+    dest: "/home/{{system_username}}/{{ item.path }}"
+    state: link
+  with_items:
+    - { path: '.zshrc' }
+    - { path: '.vimrc' }
+    - { path: '.screenlayout' }
+    - { path: '.i3' }
+    - { path: '.weechat' }
+    - { path: '.purple' }
+    - { path: '.ssh'}
+    - { path: '.boto' }
+    - { path: '.PyCharm50' }
+    - { path: '.mpdscribble' }
+  when: setup_owncloud.0 is defined
+
+- name: setup path symlinks /home/username/
+  file:
+    src: "/home/{{system_username}}/ownCloud/{{ item.path }}"
+    dest: "/home/{{system_username}}/{{ item.dest }}"
+    state: link
+  with_items:
+    - { path: 'Documents', dest: 'Documents' }
+    - { path: 'linaro/linaro-its-tools', dest: 'linaro-its-tools' }
+    - { path: 'Scripts', dest: 'Scripts' }
+    - { path: 'GitHub', dest: 'GitHub' }
+  when: setup_owncloud.0 is defined
+
+- name: setup path symlinks /home/username/.config
+  file:
+    src: "/home/{{system_username}}/ownCloud/config/{{ item.path }}"
+    dest: "/home/{{system_username}}/.config/{{ item.path }}"
+    state: link
+  with_items:
+    - { path: 'backintime' }
+    - { path: 'sublime-text-2' }
+    - { path: 'sublime-text-3' }
+    - { path: 'terminator'}
+    - { path: 'KeePass' }
+    - { path: 'transmission' }
+    - { path: 'Clementine' }
+    - { path: 'caffeine' }
+    - { path: 'spotify' }
+    - { path: 'screencloud' }
+  when: setup_owncloud.0 is defined
+
+- name: Ensure scripts scripts is executeable
+  file:
+    path: "/home/{{system_username}}/ownCloud/{{ item.path }}"
+    owner: "{{system_username}}"
+    group: "{{system_group}}"
+    mode: 0755
+    recurse: yes
+  with_items:
+    - { path: 'Scripts'}
+
+- name: Ensure i3 scripts are executeable
+  file:
+    path: "/home/{{system_username}}/ownCloud/dotfiles/.i3"
+    owner: "{{system_username}}"
+    group: "{{system_group}}"
+    mode: 0755
+    recurse: yes
+  with_items:
+    - { path: 'cputemp.sh'}
+    - { path: 'gputemp.sh'}
+    - { path: 'i3status-conky-launcher'}
+    - { path: 'mpc_toggle.sh'}
+    - { path: 'spotify.sh'}
+    - { path: 'wifistats.sh'}
+
+- name: Ensure .pem keys are 0400
+  shell: "find /home/{{system_username}}/.ssh/*.pem -type f -print0 | xargs -0 chmod 400"
+
+- name: Ensure pub keys are 0400
+  file:
+    path: "/home/{{system_username}}/.ssh/{{ item.path }}"
+    owner: "{{system_username}}"
+    group: "{{system_group}}"
+    mode: 0400
+  with_items:
+    - { path: 'id_rsa'}
+    - { path: 'id_rsa.pub'}
+    - { path: 'id_rsa-aur'}
+    - { path: 'id_rsa-aur.pub'}
+    - { path: 'bcweb_dsa'}

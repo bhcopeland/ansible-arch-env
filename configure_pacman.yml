@@ -1,8 +1,17 @@
----
 # Download an up-to-date pacman mirror list for Europe
 # add multilib and infinality (fonts) repositories
 # install catalyst drivers, when configure_catalyst is defined
 # install base packages
+---
+
+- name: Ensure that ~/.gnupg directory exists
+  file:
+    path: '{{ root_user + "/.gnupg" }}'
+    state: 'directory'
+    owner: '{{ root_user }}'
+    group: '{{ root_group }}'
+    mode: '0700'
+  sudo: yes
 
 - name: download pacman mirror list
   get_url:
@@ -70,19 +79,6 @@
     insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
   sudo: yes
 
-## Yaourt
-
-- name: add archlinuxfr repository to pacman
-  lineinfile:
-    dest: /etc/pacman.conf
-    state: present
-    line: "{{ item }}"
-  with_items:
-    - "[archlinuxfr]"
-    - "SigLevel = Never"
-    - "Server = http://repo.archlinux.fr/$arch"
-  sudo: yes
-
 ## Catalyst
 - name: add catalyst key Vi0l0
   shell: "pacman-key -r 653C3094 && pacman-key --lsign-key 653C3094"
@@ -137,6 +133,7 @@
     - acpi
     - acpid
     - alsa-utils
+    - pulseaudio
     - keychain
     - rsync
     - ntp
@@ -164,9 +161,14 @@
 
 # window manager packages
     - i3-wm
+    - dmenu
 #    - i3lock
     - i3status
     - xfce4-notifyd
+    - conky
+    - screenfetch
+    - gtk-theme-orion
+    - lxappearance
 
 # compression packages
     - zip
@@ -190,11 +192,13 @@
 # office packages
     - libreoffice-fresh
     - gthumb
-    - owncloud
+    - owncloud-client
     - chromium
     - transmission-qt
     - keepass
     - sublime-text-dev # archlinuxfr
+    - variety
+    - gnome-keyring
 
 # printing packages
     - cups
@@ -204,11 +208,11 @@
     - skype
 #    - weechat
 
-
 # font packages
     - freetype2-infinality-ultimate
     - fontconfig-infinality-ultimate
     - cairo-infinality-ultimate
+    - ttf-dejavu
 
 # gaming/video/music packages
     - steam
@@ -229,6 +233,7 @@
     - ranger
     - dos2unix
     - grml-zsh-config
+    - terminator
 
 # python packages
     - python2
