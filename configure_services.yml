@@ -10,6 +10,7 @@
   with_items:
      - { path: 'fancontrol-desktop.j2', dest: 'fancontrol' }
      - { path: 'mpd-desktop.conf.j2', dest: 'mpd.conf' }
+     - { path: 'asound.conf.j2', dest: 'asound.conf' }
      - { path: 'modules-load.d/load_these.conf.j2', dest: 'modules-load.d/load_these.conf' }
      - { path: 'sysctl.d/99-sysctl.conf.j2', dest: 'sysctl.d/99-sysctl.conf' }
      - { path: 'pulse/default.pa.j2', dest: 'pulse/default.pa' }
@@ -37,7 +38,6 @@
     - fancontrol
     - docker
     - sshd
-    - mpd
 
 - file: path=/media/nfs/shares state=directory mode=0755
 

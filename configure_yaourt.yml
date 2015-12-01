@@ -17,8 +17,10 @@
     name: yaourt
     state: latest
     update_cache: yes
-
   sudo: yes
+
+- name: import tor-browser gpg key
+  command: gpg --keyserver keys.gnupg.net --recv-keys 2E1AC68ED40814E0
 
 - name: install yaourt packages (this can take some time...)
   yaourt:
@@ -51,3 +53,4 @@
     # - backintime
     - ttf-font-awesome
     - mpdscribble
+    - tor-browser-en

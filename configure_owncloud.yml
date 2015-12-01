@@ -26,6 +26,8 @@
     - { path: '.boto' }
     - { path: '.PyCharm50' }
     - { path: '.mpdscribble' }
+    - { path: '.gist' }
+    - { path: '.gitconfig' }
   when: setup_owncloud.0 is defined
 
 - name: setup path symlinks /home/username/
@@ -56,6 +58,8 @@
     - { path: 'caffeine' }
     - { path: 'spotify' }
     - { path: 'screencloud' }
+    - { path: 'systemd' }
+    - { path: 'mpd' }
   when: setup_owncloud.0 is defined
 
 - name: Ensure scripts scripts is executeable

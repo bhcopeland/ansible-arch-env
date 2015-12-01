@@ -169,6 +169,7 @@
     - screenfetch
     - gtk-theme-orion
     - lxappearance
+    - xfce4-notifyd
 
 # compression packages
     - zip
@@ -213,6 +214,8 @@
     - fontconfig-infinality-ultimate
     - cairo-infinality-ultimate
     - ttf-dejavu
+    - noto-fonts
+    - noto-fonts-cjk
 
 # gaming/video/music packages
     - steam
@@ -221,7 +224,8 @@
     - ncmpcpp
     - mpd
     - mpc
-#    - gstreamer0.10-base-plugins
+    - pavucontrol
+    - gstreamer0.10-base-plugins
 #    - gstreamer0.10-good-plugins
 #    - gstreamer0.10-bad-plugins
 #    - gstreamer0.10-ugly-plugins
