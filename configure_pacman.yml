@@ -168,8 +168,8 @@
     - conky
     - screenfetch
     - gtk-theme-orion
+    - numix
     - lxappearance
-    - xfce4-notifyd
 
 # compression packages
     - zip
