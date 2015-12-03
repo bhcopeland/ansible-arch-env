@@ -28,6 +28,7 @@
     - { path: '.mpdscribble' }
     - { path: '.gist' }
     - { path: '.gitconfig' }
+    - { path: '.gnupg' }
   when: setup_owncloud.0 is defined
 
 - name: setup path symlinks /home/username/

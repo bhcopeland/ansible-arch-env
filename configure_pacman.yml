@@ -168,16 +168,18 @@
     - conky
     - screenfetch
     - gtk-theme-orion
-    - numix
+    - numix-themes
     - lxappearance
 
 # compression packages
+    - xarchiver-gtk2
     - zip
     - unzip
     - unrar
     - bzip2
     - gzip
     - tar
+    - p7zip
 
 # virtualization packages
     - docker
@@ -200,6 +202,7 @@
     - sublime-text-dev # archlinuxfr
     - variety
     - gnome-keyring
+    - vim-jedi
 
 # printing packages
     - cups
@@ -244,6 +247,7 @@
     - ipython2
     - python2-virtualenv
     - python2-pip
+    - python2-jedi
  # Python3
     - python
     - python-virtualenv
