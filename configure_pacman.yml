@@ -121,8 +121,6 @@
     - iotop
     - powertop
     - glances
-    - git
-    - vim
     - sudo
     - zsh
     - downgrade
@@ -148,6 +146,7 @@
     - nfs-utils
     - logrotate
     - openssh
+
 # display packages
     - xorg-xbacklight
     - xorg-xsetroot
@@ -203,6 +202,7 @@
     - variety
     - gnome-keyring
     - vim-jedi
+    - vim
 
 # printing packages
     - cups
@@ -233,7 +233,7 @@
 #    - gstreamer0.10-bad-plugins
 #    - gstreamer0.10-ugly-plugins
 
-# terminal tools packages
+# terminal/work packages
     - gist
     - ncdu
     - xsel
@@ -241,8 +241,10 @@
     - dos2unix
     - grml-zsh-config
     - terminator
+    - git
+    - git-review
 
-# python packages
+# Python2 packages
     - python2
     - ipython2
     - python2-virtualenv
