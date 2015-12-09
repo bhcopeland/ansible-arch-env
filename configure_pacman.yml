@@ -146,6 +146,7 @@
     - nfs-utils
     - logrotate
     - openssh
+    - dnsutils
 
 # display packages
     - xorg-xbacklight
@@ -203,6 +204,8 @@
     - gnome-keyring
     - vim-jedi
     - vim
+    - gnome-calculator
+    - feh
 
 # printing packages
     - cups
