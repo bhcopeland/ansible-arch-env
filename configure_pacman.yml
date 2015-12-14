@@ -246,6 +246,8 @@
     - terminator
     - git
     - git-review
+    - screen
+    - tmux
 
 # Python2 packages
     - python2
