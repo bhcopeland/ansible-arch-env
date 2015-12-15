@@ -147,6 +147,7 @@
     - logrotate
     - openssh
     - dnsutils
+    - whois
 
 # display packages
     - xorg-xbacklight
