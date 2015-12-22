@@ -61,6 +61,7 @@
     - { path: 'screencloud' }
     - { path: 'systemd' }
     - { path: 'mpd' }
+    - { path: 'gtk-3.0' }
   when: setup_owncloud.0 is defined
 
 - name: Ensure scripts scripts is executeable

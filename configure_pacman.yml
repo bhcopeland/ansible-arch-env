@@ -148,6 +148,7 @@
     - openssh
     - dnsutils
     - whois
+    - wget
 
 # display packages
     - xorg-xbacklight

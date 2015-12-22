@@ -17,6 +17,7 @@
    tasks:
       - name: configure pacman/packages
         include: configure_pacman.yml
+        sudo: yes
 
       - name: configure yaourt
         include: configure_yaourt.yml
