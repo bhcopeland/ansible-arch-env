@@ -149,6 +149,7 @@
     - dnsutils
     - whois
     - wget
+    - stress
 
 # display packages
     - xorg-xbacklight

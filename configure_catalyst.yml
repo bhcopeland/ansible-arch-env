@@ -34,3 +34,7 @@
   sudo: yes
   with_items:
     - catalyst-hook
+
+- name: enable overdrive
+  command: aticonfig --od-enable
+  sudo: yes
