@@ -88,6 +88,7 @@
     - { path: 'mpc_toggle.sh'}
     - { path: 'spotify.sh'}
     - { path: 'wifistats.sh'}
+    - { path: 'mpd.sh'}
 
 - name: Ensure .pem keys are 0400
   shell: "find /home/{{system_username}}/.ssh/*.pem -type f -print0 | xargs -0 chmod 400"

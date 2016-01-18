@@ -15,6 +15,7 @@
     - lib32-catalyst-utils
     - lib32-catalyst-libgl
     - lib32-opencl-catalyst
+    - steam-libs
 
 - name: copy xorg.conf catalyst/desktop
   copy:

@@ -106,6 +106,8 @@
       ## Mirrors, if the primary server does not work or is too slow:
       Server = http://mirror.rts-informatique.fr/archlinux-catalyst/repo/xorg117/$arch
       Server = http://mirror.hactar.bz/Vi0L0/xorg117/$arch
+      [alucryd-multilib]
+      Server = http://pkgbuild.com/~alucryd/$repo/x86_64
 
 - name: install pacman packages
   pacman:
@@ -150,6 +152,7 @@
     - whois
     - wget
     - stress
+    - cpupower
 
 # display packages
     - xorg-xbacklight
@@ -170,9 +173,10 @@
     - xfce4-notifyd
     - conky
     - screenfetch
-    - gtk-theme-orion
     - numix-themes
     - lxappearance
+    - perl-anyevent-i3
+    - perl-json-xs
 
 # compression packages
     - xarchiver-gtk2
@@ -186,6 +190,8 @@
 
 # virtualization packages
     - docker
+    - lxc
+    - lxcfs
 
 # file packages
     - thunar
@@ -235,6 +241,9 @@
     - mpc
     - pavucontrol
     - gstreamer0.10-base-plugins
+    - picard
+    - lib32-alsa-plugins
+    - mumble
 #    - gstreamer0.10-good-plugins
 #    - gstreamer0.10-bad-plugins
 #    - gstreamer0.10-ugly-plugins
@@ -245,7 +254,7 @@
     - xsel
     - ranger
     - dos2unix
-    - grml-zsh-config
+#    - grml-zsh-config
     - terminator
     - git
     - git-review
