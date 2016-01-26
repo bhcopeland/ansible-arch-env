@@ -153,6 +153,7 @@
     - wget
     - stress
     - cpupower
+    - iptraf-ng
 
 # display packages
     - xorg-xbacklight
@@ -192,6 +193,7 @@
     - docker
     - lxc
     - lxcfs
+    - qemu
 
 # file packages
     - thunar

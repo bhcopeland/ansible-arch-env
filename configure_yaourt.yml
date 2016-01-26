@@ -29,12 +29,9 @@
   ignore_errors: yes
   with_items:
     - oh-my-zsh-git
-    - apachedirectorystudio
     - xfce4-volumed
     - caffeine-ng
- #   - conkyclementine-bzr
     - i3lock-wrapper
-    - keepass-plugin-http
     - pycharm-community
     - python2-cli53
     - screencloud
