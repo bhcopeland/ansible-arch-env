@@ -22,6 +22,10 @@
 - name: import tor-browser gpg key
   command: gpg --keyserver keys.gnupg.net --recv-keys 2E1AC68ED40814E0
 
+- name: GPG key for vim-youcompleteme-git
+  shell: "sudo gpg --recv-key 1EB2638FF56C0C53"
+  sudo: yes
+
 - name: install yaourt packages (this can take some time...)
   yaourt:
     name: "{{item}}"
@@ -44,7 +48,7 @@
     - numix-circle-icon-theme-git
     - numix-icon-theme-git
     - google-talkplugin
- #   - vim-youcompleteme-git
+    - vim-youcompleteme-git
     - chromium-pepper-flash
     # - backintime-cli
     # - backintime

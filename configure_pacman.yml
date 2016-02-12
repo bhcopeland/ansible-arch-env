@@ -154,6 +154,7 @@
     - stress
     - cpupower
     - iptraf-ng
+    - dosfstools
 
 # display packages
     - xorg-xbacklight
@@ -164,6 +165,7 @@
     - xorg-xinit
     - lightdm
     - lightdm-gtk-greeter
+    - lightdm-gtk-greeter-settings
     - redshift
 
 # window manager packages

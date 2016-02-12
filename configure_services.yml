@@ -7,6 +7,7 @@
     owner: "{{root_user}}"
     group: "{{root_group}}"
     mode: "0644"
+    backup: yes
   with_items:
      - { path: 'fancontrol-desktop.j2', dest: 'fancontrol' }
      - { path: 'asound.conf.j2', dest: 'asound.conf' }
