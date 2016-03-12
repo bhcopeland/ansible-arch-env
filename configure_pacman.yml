@@ -11,7 +11,6 @@
     owner: '{{ root_user }}'
     group: '{{ root_group }}'
     mode: '0700'
-  sudo: yes
 
 - name: download pacman mirror list
   get_url:
@@ -47,14 +46,12 @@
 - name: add infinality-bundle key
   shell: "pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58"
   changed_when: false
-  sudo: yes
 
 - name: add infinality-bundle # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
   lineinfile:
     dest: /etc/pacman.conf
     state: "present"
     line: "[infinality-bundle]"
-  sudo: yes
 
 - name: add infinality-bundle (cont)
   lineinfile:
@@ -62,14 +59,12 @@
     state: present
     line: "Server = http://bohoomil.com/repo/$arch"
     insertafter: "^\\[infinality\\-bundle\\]"
-  sudo: yes
 
 - name: add infinality-bundle-fonts # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
   lineinfile:
     dest: /etc/pacman.conf
     state: present
     line: "[infinality-bundle-fonts]"
-  sudo: yes
 
 - name: add infinality-bundle-fonts (cont)
   lineinfile:
@@ -77,19 +72,16 @@
     state: present
     line: "Server = http://bohoomil.com/repo/fonts"
     insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
-  sudo: yes
 
 ## Catalyst
 - name: add catalyst key Vi0l0
   shell: "pacman-key -r 653C3094 && pacman-key --lsign-key 653C3094"
   changed_when: false
   when: configure_catalyst.0 is defined
-  sudo: yes
 
 # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#catalyst
 # https://wiki.archlinux.org/index.php/AMD_Catalyst#Xorg_repositories
 - name: add catalyst and xorg
-  sudo: yes
   when: configure_catalyst.0 is defined
   blockinfile:
     dest: /etc/pacman.conf
@@ -114,7 +106,6 @@
     name: "{{item}}"
     state: latest
     update_cache: yes
-  sudo: yes
   when: setup_packages.0 is defined
   with_items:
 # system packages
@@ -155,6 +146,7 @@
     - cpupower
     - iptraf-ng
     - dosfstools
+    - mosh
 
 # display packages
     - xorg-xbacklight
@@ -180,6 +172,7 @@
     - lxappearance
     - perl-anyevent-i3
     - perl-json-xs
+    - xautolock
 
 # compression packages
     - xarchiver-gtk2
@@ -202,6 +195,7 @@
     - thunar-media-tags-plugin
     - thunar-archive-plugin
     - ranger
+    - gphoto2
     - libgphoto2 #gphoto2
     - gvfs gvfs-gphoto2 gvfs-mtp gvfs-smb # have to be bundled together as they depend on each other
 

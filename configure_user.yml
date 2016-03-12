@@ -9,7 +9,6 @@
     append: yes
     shell: /bin/zsh
     update_password: always
-  sudo: yes
 
 
 - name: create default directories

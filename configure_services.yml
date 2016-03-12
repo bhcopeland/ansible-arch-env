@@ -14,21 +14,18 @@
      - { path: 'modules-load.d/load_these.conf.j2', dest: 'modules-load.d/load_these.conf' }
      - { path: 'sysctl.d/99-sysctl.conf.j2', dest: 'sysctl.d/99-sysctl.conf' }
      - { path: 'pulse/default.pa.j2', dest: 'pulse/default.pa' }
-  sudo: yes
   when: configure_catalyst.0 is defined # Since I only run fancontrol on desktop, which runs catalyst...
 
 - name: disable lm_sensors service
   service:
     name: lm_sensors
     state: stopped
-  sudo: yes
   when: configure_catalyst.0 is defined
 
 - name: enable default services
   service:
     name: "{{item}}"
     state: started
-  sudo: yes
   with_items:
     - ntpd
     - dhcpcd
@@ -52,4 +49,3 @@
     fstype: "nfs4"
     opts: "users,auto,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,noatime,nolock"
     state: "mounted"
-  sudo: yes

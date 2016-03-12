@@ -6,6 +6,5 @@
   hosts: test
   roles:
    - role: example role
-     sudo: yes
 
 

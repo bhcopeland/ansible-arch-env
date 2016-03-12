@@ -5,7 +5,6 @@
     name: "{{item}}"
     state: latest
     update_cache: yes
-  sudo: yes
   with_items:
     - catalyst-hook
     - catalyst-libgl
@@ -25,17 +24,14 @@
     group: root
     mode: 0644
   when: configure_catalyst.0 is defined
-  sudo: yes
 
 - name: enable catalyst services
   service:
     name: "{{item}}"
     state: started
     enabled: yes
-  sudo: yes
   with_items:
     - catalyst-hook
 
 - name: enable overdrive
   command: aticonfig --od-enable
-  sudo: yes
