@@ -12,5 +12,14 @@
     - 30-whatpulse-touchpad-rules.conf
     - 50-synaptics.conf
 
-- name: setup conky
-  command: setcap cap_net_raw,cap_net_admin=eip /usr/bin/conky
+- name: set dpi settings
+  replace:
+    dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
+    regexp: '^#xft-dpi='
+    replace: 'xft-dpi=140'
+
+- name: set dpi
+  replace:
+    dest: "/etc/X11/xinit/xinitrc.d/xft-settings.sh"
+    regexp: "^Xft.dpi:"
+    replace: "Xft.dpi:        140"
