@@ -20,8 +20,8 @@
         include: configure_pacman.yml
         sudo: yes
 
-      - name: configure yaourt
-        include: configure_yaourt.yml
+      - name: configure aur
+        include: configure_aur.yml
         when: setup_yaourt.0 is defined
 
       - name: configure systemd services and etc files

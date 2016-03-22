@@ -23,6 +23,14 @@
     regexp: '^#Server'
     replace: 'Server'
 
+- name: "uncomment colors"
+  lineinfile:
+    dest: /etc/pacman.conf
+    state: "present"
+    regexp: "^Color"
+    insertafter: "^#Color"
+    line: "Color"
+
 # Enable multilib
 
 - name: add multilib
