@@ -155,6 +155,7 @@
     - iptraf-ng
     - dosfstools
     - mosh
+    - nmap
 
 # display packages
     - xorg-xbacklight

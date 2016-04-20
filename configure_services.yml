@@ -1,5 +1,4 @@
 ---
-
 - name: copy etc files
   copy:
     src: "./files/etc/{{ item.path }}"
@@ -13,17 +12,16 @@
      - { path: 'asound.conf.j2', dest: 'asound.conf' }
      - { path: 'modules-load.d/load_these.conf.j2', dest: 'modules-load.d/load_these.conf' }
      - { path: 'sysctl.d/99-sysctl.conf.j2', dest: 'sysctl.d/99-sysctl.conf' }
-     - { path: 'pulse/default.pa.j2', dest: 'pulse/default.pa' }
   when: configure_catalyst.0 is defined 
-  # Since I only run fancontrol on desktop, which runs catalyst...
 
+# Since I only run fancontrol on desktop, which runs catalyst...
 - name: disable lm_sensors service
   service:
     name: lm_sensors
     state: stopped
   when: configure_catalyst.0 is defined
-  # Disable due to stupid sensors moving around on bootup
-  
+
+# Disable due to stupid sensors moving around on bootup
 - name: enable default services
   service:
     name: "{{item}}"
@@ -39,9 +37,11 @@
     - sshd
 
 # NFS Share
-- file: path=/media/nfs/shares
-        state=directory
-        mode=0755
+- file: 
+    path: "{{nfs_share}}"
+    state: "directory"
+    mode: "0755"
+  ignore_errors: True
 
 - name: fstab | Ensure fstab uses nobootwait and noatime
   mount:
@@ -52,4 +52,4 @@
     state: "mounted"
 
 - name: setup conky
-  command: setcap cap_net_raw,cap_net_admin=eip /usr/bin/conky
+  command: "setcap cap_net_raw,cap_net_admin=eip /usr/bin/conky"

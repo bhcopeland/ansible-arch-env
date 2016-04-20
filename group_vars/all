@@ -5,3 +5,5 @@ owncloud_username: bhcopeland
 
 root_user: root
 root_group: root
+
+nfs_share: "/media/nfs/"
