@@ -133,6 +133,7 @@
     - acpid
     - alsa-utils
     - pulseaudio
+    - pulseaudio-alsa
     - keychain
     - rsync
     - ntp
@@ -219,7 +220,7 @@
     - variety
     - gnome-keyring
     - vim-jedi
-    - vim
+    - gvim
     - gnome-calculator
     - feh
 
