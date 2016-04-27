@@ -10,6 +10,7 @@
      - secrets.yml
    vars_prompt:
      configure_catalyst: "Configure Catalyst?"
+     configure_xf86-video-ati: "Configure xf86-video-ati?"
      configure_intel: "Configure Intel (laptop)?"
      setup_packages: "Setup pacman?"
      setup_yaourt: "Setup yaourt?"

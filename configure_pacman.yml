@@ -106,6 +106,13 @@
       ## Mirrors, if the primary server does not work or is too slow:
       Server = http://mirror.rts-informatique.fr/archlinux-catalyst/repo/xorg117/$arch
       Server = http://mirror.hactar.bz/Vi0L0/xorg117/$arch
+
+# https://wiki.archlinux.org/index.php/unofficial_user_repositories#alucryd-multilib
+- name: add steamlibs
+  blockinfile:
+    dest: /etc/pacman.conf
+    insertbefore: "^\\[testing\\]"
+    block: |
       [alucryd-multilib]
       Server = http://pkgbuild.com/~alucryd/$repo/x86_64
 

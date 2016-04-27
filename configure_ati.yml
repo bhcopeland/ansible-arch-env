@@ -1,0 +1,15 @@
+---
+
+- name: install xf86-video-ati
+  pacman:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - xf86-video-ati
+    - mesa
+    - mesa-libgl
+    - lib32-mesa-libgl 
+    - mesa-vdpau
+    - steam-libs
+  when: configure_xf86-video-ati is defined
