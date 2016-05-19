@@ -37,19 +37,20 @@
     - sshd
 
 # NFS Share
-- file: 
+- name: Ensure fstab directory exists
+  file: 
     path: "{{nfs_share}}"
     state: "directory"
     mode: "0755"
   ignore_errors: True
 
-- name: fstab | Ensure fstab uses nobootwait and noatime
+- name: Ensure fstab uses nobootwait and noatime
   mount:
-    name: "/media/nfs/shares"
+    name: "{{nfs_share}}"
     src: "sc0rian.mooo.com:/"
     fstype: "nfs4"
     opts: "noauto,x-systemd.automount,x-systemd.device-timeout=10,timeo=14,x-systemd.idle-timeout=1min"
     state: "mounted"
 
-- name: setup conky
+- name: allow conky to access wireless values
   command: "setcap cap_net_raw,cap_net_admin=eip /usr/bin/conky"

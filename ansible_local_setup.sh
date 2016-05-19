@@ -6,20 +6,20 @@
 -  hosts: localhost
    gather_facts: false
    become: yes
+   ignore_errors: yes
    vars_files:
      - secrets.yml
    vars_prompt:
      configure_catalyst: "Configure Catalyst?"
      configure_xf86-video-ati: "Configure xf86-video-ati?"
      configure_intel: "Configure Intel (laptop)?"
-     setup_packages: "Setup pacman?"
-     setup_yaourt: "Setup yaourt?"
-     setup_owncloud: "Setup owncloud?"
+#     setup_packages: "Setup pacman?"
+     setup_yaourt: "Setup aur packages?"
+#     setup_owncloud: "Setup owncloud?"
 
    tasks:
       - name: configure pacman/packages
         include: configure_pacman.yml
-        sudo: yes
 
       - name: configure aur
         include: configure_aur.yml
@@ -31,11 +31,11 @@
       - name: user account and folder creation
         include: configure_user.yml
 
-      - name: congiure sudo users
+      - name: configure sudo users
         include: configure_sudo.yml
 
-      - name: configure owncloud client
-        include: configure_owncloud.yml
+      - name: configure symlinks (OwnCloud)
+        include: configure_symlinks.yml
         when: setup_owncloud.0 is defined
 
       - name: configure catalyst (desktop)

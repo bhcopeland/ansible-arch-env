@@ -6,4 +6,7 @@ owncloud_username: bhcopeland
 root_user: root
 root_group: root
 
-nfs_share: "/media/nfs/"
+nfs_share: "/media/nfs/data"
+
+setup_packages: "yes"
+setup_owncloud: "yes"
