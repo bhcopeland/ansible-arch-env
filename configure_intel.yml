@@ -9,17 +9,10 @@
     mode: 0644
   with_items:
     - 20-intel.conf
-    - 30-whatpulse-touchpad-rules.conf
     - 50-synaptics.conf
 
 - name: set dpi settings
   replace:
     dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
-    regexp: '^#xft-dpi='
-    replace: 'xft-dpi=140'
-
-- name: set dpi
-  replace:
-    dest: "/etc/X11/xinit/xinitrc.d/xft-settings.sh"
-    regexp: "^Xft.dpi:"
-    replace: "Xft.dpi:        140"
+    regexp: '^#xserver-command='
+    replace: 'xserver-command=X -dpi 120'
