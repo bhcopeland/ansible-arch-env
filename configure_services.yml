@@ -35,6 +35,7 @@
     - fancontrol
     - docker
     - sshd
+    - reflector.timer
 
 # NFS Share
 - name: Ensure fstab directory exists

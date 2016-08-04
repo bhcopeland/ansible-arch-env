@@ -10,9 +10,10 @@
    vars_files:
      - secrets.yml
    vars_prompt:
-     configure_catalyst: "Configure Catalyst?"
+#     configure_catalyst: "Configure Catalyst?"
      configure_xf86-video-ati: "Configure xf86-video-ati?"
-     configure_intel: "Configure Intel (laptop)?"
+     configure_xf86-video-amdgpu: "Configure xf86-video-amdgpu?"
+     configure_intel: "Configure xf86-video-intel?"
 #     setup_packages: "Setup pacman?"
      setup_yaourt: "Setup aur packages?"
 #     setup_owncloud: "Setup owncloud?"

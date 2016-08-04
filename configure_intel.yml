@@ -13,6 +13,6 @@
 
 - name: set dpi settings
   replace:
-    dest: "/etc/lightdm/lightdm-gtk-greeter.conf"
+    dest: "/etc/lightdm/lightdm.conf"
     regexp: '^#xserver-command='
     replace: 'xserver-command=X -dpi 120'

@@ -28,8 +28,9 @@
     - { path: '.gist' }
     - { path: '.gitconfig' }
     - { path: '.gnupg' }
-    - { path: '.local/share/data/ownCloud' }
+    - { path: '.local/share/data/ownCloud/sync-exclude.lst' }
     - { path: '.imwheelrc' }
+    - { path: '.Xresources' }
   when: setup_owncloud.0 is defined
 
 - name: setup path symlinks /home/username/

@@ -123,7 +123,9 @@
     update_cache: yes
   when: setup_packages.0 is defined
   with_items:
-# system packages
+# system packages 
+    - abs
+    - base-devel
     - curl
     - htop
     - iotop
@@ -164,6 +166,7 @@
     - dosfstools
     - mosh
     - nmap
+    - reflector
 
 # display packages
     - xorg-xbacklight
@@ -178,7 +181,7 @@
     - redshift
 
 # window manager packages
-    - i3-wm
+#    - i3-wm # i3-gaps in aur
     - dmenu
 #    - i3lock
     - i3status
@@ -222,8 +225,6 @@
     - owncloud-client
     - chromium
     - transmission-qt
-    - keepass
-    - sublime-text-dev # archlinuxfr
     - variety
     - gnome-keyring
     - vim-jedi
@@ -248,8 +249,8 @@
     - noto-fonts-cjk
 
 # gaming/video/music packages
-    - steam
-    - steam-libs
+#    - steam
+#    - steam-libs
     - vlc
     - kodi
     - ncmpcpp
@@ -289,3 +290,9 @@
     - ipython
     - python-pip
 
+#Steam/Mesa (Graphics)
+    - mesa
+    - mesa-libgl
+    - lib32-mesa-libgl
+    - mesa-vdpau
+    - steam-libs
