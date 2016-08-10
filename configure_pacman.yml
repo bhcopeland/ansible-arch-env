@@ -108,13 +108,13 @@
       Server = http://mirror.hactar.bz/Vi0L0/xorg117/$arch
 
 # https://wiki.archlinux.org/index.php/unofficial_user_repositories#alucryd-multilib
-- name: add steamlibs
-  blockinfile:
-    dest: /etc/pacman.conf
-    insertbefore: "^\\[testing\\]"
-    block: |
-      [alucryd-multilib]
-      Server = http://pkgbuild.com/~alucryd/$repo/x86_64
+#- name: add steamlibs
+# blockinfile:
+#    dest: /etc/pacman.conf
+#    insertbefore: "^\\[testing\\]"
+#    block: |
+#      [alucryd-multilib]
+#      Server = http://pkgbuild.com/~alucryd/$repo/x86_64
 
 - name: install pacman packages
   pacman:
@@ -133,7 +133,7 @@
     - glances
     - sudo
     - zsh
-    - downgrade
+      #    - downgrade
     - udiskie
     - avahi
     - xbindkeys
@@ -167,6 +167,7 @@
     - mosh
     - nmap
     - reflector
+    - mlocate
 
 # display packages
     - xorg-xbacklight
@@ -183,6 +184,7 @@
 # window manager packages
 #    - i3-wm # i3-gaps in aur
     - dmenu
+    - rofi
 #    - i3lock
     - i3status
     - xfce4-notifyd
@@ -223,12 +225,11 @@
     - libreoffice-fresh
     - gthumb
     - owncloud-client
-    - chromium
+#    - chromium #google-chrome aur
     - transmission-qt
     - variety
     - gnome-keyring
     - vim-jedi
-    - gvim
     - gnome-calculator
     - feh
 
@@ -237,7 +238,6 @@
 
 # chat packages
     - pidgin
-    - skype
 #    - weechat
 
 # font packages
@@ -295,4 +295,7 @@
     - mesa-libgl
     - lib32-mesa-libgl
     - mesa-vdpau
-    - steam-libs
+    - sdl2_image
+    - sdl_image
+    - lib32-sdl
+    - lib32-sdl2

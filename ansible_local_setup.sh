@@ -6,7 +6,7 @@
 -  hosts: localhost
    gather_facts: false
    become: yes
-   ignore_errors: yes
+##   ignore_errors: yes
    vars_files:
      - secrets.yml
    vars_prompt:
