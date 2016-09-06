@@ -35,7 +35,6 @@
     - i3lock-wrapper
     - pycharm-community
     - screencloud
-    - skype4pidgin-git
     - roccat-tools-full
     - spotify
     - teamviewer
@@ -54,9 +53,10 @@
     - imwheel
     - sublime-text-dev
     - pasystray
-    - reflector-timer
     - skype
     - ttf-inconsolata-g #terminator
     - steam-native
     - powerline-fonts-git #zsh theme agnoster
     - google-chrome
+    - reflector.timer
+    - purple-skypeweb-git

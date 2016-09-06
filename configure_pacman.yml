@@ -195,6 +195,7 @@
     - perl-anyevent-i3
     - perl-json-xs
     - xautolock
+    - seahorse
 
 # compression packages
     - xarchiver-gtk2
