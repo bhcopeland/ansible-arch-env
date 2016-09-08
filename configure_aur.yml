@@ -60,3 +60,4 @@
     - google-chrome
     - reflector.timer
     - purple-skypeweb-git
+    - lib32-librtmp0 #tombraider etc

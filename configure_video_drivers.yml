@@ -1,0 +1,38 @@
+---
+- name: copy xorg.conf.d for laptop
+  copy:
+    src: "files/etc/xorg.conf.d/laptop/{{item}}"
+    dest: "/etc/X11/xorg.conf.d/{{item}}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - 20-intel.conf
+    - 50-synaptics.conf
+  when: configure_intel is defined
+
+- name: set dpi settings
+  replace:
+    dest: "/etc/lightdm/lightdm.conf"
+    regexp: '^#xserver-command='
+    replace: 'xserver-command=X -dpi 120'
+  when: configure_intel is defined
+
+- name: install xf86-video-ati
+  pacman:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - xf86-video-ati
+  when: configure_xf86-video-ati is defined
+
+- name: install xf86-video-amdgpu
+  pacman:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - xf86-video-amdgpu
+  when: configure_xf86-video-amdgpu is defined
+

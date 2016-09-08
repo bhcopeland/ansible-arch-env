@@ -10,15 +10,16 @@
    vars_files:
      - secrets.yml
    vars_prompt:
-#     configure_catalyst: "Configure Catalyst?"
-     configure_xf86-video-ati: "Configure xf86-video-ati?"
+     configure_xf86-video-ati: "Configure configure_xf86-video-ati?"
      configure_xf86-video-amdgpu: "Configure xf86-video-amdgpu?"
      configure_intel: "Configure xf86-video-intel?"
-#     setup_packages: "Setup pacman?"
      setup_yaourt: "Setup aur packages?"
-#     setup_owncloud: "Setup owncloud?"
 
    tasks:
+      - name: configure video_drivers
+        include: configure_video_drivers.yml
+        when: configure_intel.0 is defined or configure_xf86-video-ati.0 is defined or configure_xf86-video-amdgpu.0 is defined
+
       - name: configure pacman/packages
         include: configure_pacman.yml
 
@@ -35,14 +36,6 @@
       - name: configure sudo users
         include: configure_sudo.yml
 
-      - name: configure symlinks (OwnCloud)
+      - name: configure symlinks
         include: configure_symlinks.yml
         when: setup_owncloud.0 is defined
-
-      - name: configure catalyst (desktop)
-        include: configure_catalyst.yml
-        when: configure_catalyst.0 is defined
-
-      - name: configure intel (laptop)
-        include: configure_intel.yml
-        when: configure_intel.0 is defined

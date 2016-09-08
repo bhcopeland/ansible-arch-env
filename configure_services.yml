@@ -8,20 +8,10 @@
     mode: "0644"
     backup: yes
   with_items:
-     - { path: 'fancontrol-desktop.j2', dest: 'fancontrol' }
-     - { path: 'asound.conf.j2', dest: 'asound.conf' }
-     - { path: 'modules-load.d/load_these.conf.j2', dest: 'modules-load.d/load_these.conf' }
      - { path: 'sysctl.d/99-sysctl.conf.j2', dest: 'sysctl.d/99-sysctl.conf' }
-  when: configure_catalyst.0 is defined 
+     - { path: 'systemd/system/reflector.service', dest: 'systemd/system/reflector.service' }
+     - { path: 'systemd/system/reflector.timer', dest: 'systemd/system/reflector.timer' }
 
-# Since I only run fancontrol on desktop, which runs catalyst...
-- name: disable lm_sensors service
-  service:
-    name: lm_sensors
-    state: stopped
-  when: configure_catalyst.0 is defined
-
-# Disable due to stupid sensors moving around on bootup
 - name: enable default services
   service:
     name: "{{item}}"
@@ -32,9 +22,9 @@
     - cups-browsed
     - avahi-daemon
     - lightdm
-    - fancontrol
     - docker
     - sshd
+    - reflector.service
     - reflector.timer
 
 # NFS Share
