@@ -1,35 +1,10 @@
 ---
-## Yaourt
-
-#- name: add archlinuxfr repository to pacman
-#  lineinfile:
-#    dest: /etc/pacman.conf
-#    state: present
-#    line: "{{ item }}"
-#  with_items:
-#    - "[archlinuxfr]"
-#    - "SigLevel = Never"
-#    - "Server = http://repo.archlinux.fr/$arch"
-
-#- name: install yaourt
-#  pacman:
-#    name: yaourt
-#    state: latest
-#    update_cache: yes
-
-#- name: import tor-browser gpg key
-#  command: gpg --keyserver keys.gnupg.net --recv-keys 2E1AC68ED40814E0
-#- name: GPG key for vim-youcompleteme-git
-#  shell: "sudo gpg --recv-key 1EB2638FF56C0C53"
-
 - name: install aur packages
-  yaourt:
-    name: "{{item}}"
-    state: latest
+  command: "pacaur -S --noconfirm --noedit {{item}}"
+  become: no
   #  ignore_errors: yes
   with_items:
     - oh-my-zsh-git
-    - xfce4-volumed
     - caffeine-ng
     - i3-gaps
     - i3lock-wrapper
@@ -39,7 +14,7 @@
     - spotify
     - teamviewer
     - whatpulse
-    - zabbix-agent
+#    - zabbix-agent
     - numix-circle-icon-theme-git
     - numix-icon-theme-git
     - google-talkplugin
@@ -53,11 +28,11 @@
     - imwheel
     - sublime-text-dev
     - pasystray
-    - skype
     - ttf-inconsolata-g #terminator
     - steam-native
     - powerline-fonts-git #zsh theme agnoster
     - google-chrome
-    - reflector.timer
+    - reflector-timer
     - purple-skypeweb-git
+    - skypeforlinux-bin
     - lib32-librtmp0 #tombraider etc

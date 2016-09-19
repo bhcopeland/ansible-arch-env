@@ -2,7 +2,6 @@
 ---
 # Install and setup local env
 
-
 -  hosts: localhost
    gather_facts: false
    become: yes
@@ -18,7 +17,10 @@
    tasks:
       - name: configure video_drivers
         include: configure_video_drivers.yml
-        when: configure_intel.0 is defined or configure_xf86-video-ati.0 is defined or configure_xf86-video-amdgpu.0 is defined
+        when: (configure_intel.0 is defined) or (configure_xf86-video-ati.0 is defined) or (configure_xf86-video-amdgpu is defined)
+
+      - name: user/sudo and folder creation
+        include: configure_user.yml
 
       - name: configure pacman/packages
         include: configure_pacman.yml
@@ -29,12 +31,6 @@
 
       - name: configure systemd services and etc files
         include: configure_services.yml
-
-      - name: user account and folder creation
-        include: configure_user.yml
-
-      - name: configure sudo users
-        include: configure_sudo.yml
 
       - name: configure symlinks
         include: configure_symlinks.yml

@@ -141,6 +141,14 @@
     - nmap
     - reflector
     - mlocate
+    - binutils
+    - fakeroot
+    - patch
+    - make
+    - gcc-multilib
+    - autoconf
+    - automake
+    - netdata
 
 # display packages
     - xorg-xbacklight
@@ -169,6 +177,7 @@
     - perl-json-xs
     - xautolock
     - seahorse
+    - dunst
 
 # compression packages
     - xarchiver-gtk2
@@ -235,6 +244,7 @@
     - picard
     - lib32-alsa-plugins
     - mumble
+    - cheese
 #    - gstreamer0.10-good-plugins
 #    - gstreamer0.10-bad-plugins
 #    - gstreamer0.10-ugly-plugins

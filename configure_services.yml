@@ -11,11 +11,13 @@
      - { path: 'sysctl.d/99-sysctl.conf.j2', dest: 'sysctl.d/99-sysctl.conf' }
      - { path: 'systemd/system/reflector.service', dest: 'systemd/system/reflector.service' }
      - { path: 'systemd/system/reflector.timer', dest: 'systemd/system/reflector.timer' }
+     - { path: 'makepkg.conf', dest: 'makepkg.conf' }
 
 - name: enable default services
   service:
     name: "{{item}}"
     state: started
+    enabled: yes
   with_items:
     - ntpd
     - dhcpcd
@@ -26,6 +28,17 @@
     - sshd
     - reflector.service
     - reflector.timer
+
+- name: enable user based services
+  become: no
+  systemd:
+    state: started
+    enabled: yes
+    name: "{{item}}"
+    user: yes
+  with_items:
+    - mpd
+    - mpdscribble
 
 # NFS Share
 - name: Ensure fstab directory exists
