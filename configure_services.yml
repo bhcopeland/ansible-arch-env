@@ -22,6 +22,7 @@
     - ntpd
     - dhcpcd
     - cups-browsed
+    - org.cups.cupsd.service
     - avahi-daemon
     - lightdm
     - docker
