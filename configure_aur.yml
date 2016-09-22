@@ -38,3 +38,5 @@
     - skypeforlinux-bin
     - lib32-librtmp0 #tombraider etc
     - samsung-ml1640
+    - flacon #flac
+    - dragondisk
