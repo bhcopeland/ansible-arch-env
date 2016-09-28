@@ -40,7 +40,7 @@
     state: link
   with_items:
     - { path: 'Documents', dest: 'Documents' }
-    - { path: 'linaro/linaro-its-tools', dest: 'linaro-its-tools' }
+    - { path: 'Linaro', dest: 'Linaro' }
     - { path: 'Scripts', dest: 'Scripts' }
     - { path: 'GitHub', dest: 'GitHub' }
   when: setup_owncloud.0 is defined
