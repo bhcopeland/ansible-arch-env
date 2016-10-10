@@ -6,7 +6,6 @@
   with_items:
     - oh-my-zsh-git
     - caffeine-ng
-    - i3-gaps
     - i3lock-wrapper
     - pycharm-community
     - screencloud
@@ -15,7 +14,6 @@
     - spotify-adkiller
     - teamviewer
     - whatpulse
-#    - zabbix-agent
     - numix-circle-icon-theme-git
     - numix-icon-theme-git
     - google-talkplugin
@@ -25,7 +23,6 @@
     - mpdscribble
     - tor-browser-en
     - apache-tools
-    - steam-libs
     - imwheel
     - sublime-text-dev
     - pasystray

@@ -275,6 +275,7 @@
     - python-pip
 
 #Steam/Mesa (Graphics)
+    - steam-native-runtime
     - mesa
     - mesa-libgl
     - lib32-mesa-libgl
