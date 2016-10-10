@@ -163,7 +163,7 @@
     - redshift
 
 # window manager packages
-#    - i3-wm # i3-gaps in aur
+    - i3-wm
     - dmenu
     - rofi
 #    - i3lock
