@@ -172,6 +172,8 @@
     - conky
     - screenfetch
     - numix-themes
+    - arc-gtk-theme
+    - arc-icon-theme 
     - lxappearance
     - perl-anyevent-i3
     - perl-json-xs

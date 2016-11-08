@@ -27,7 +27,7 @@
     - sublime-text-dev
     - pasystray
     - ttf-inconsolata-g #terminator
-    - steam-native
+#    - steam-native
     - powerline-fonts-git #zsh theme agnoster
     - google-chrome
     - reflector-timer
