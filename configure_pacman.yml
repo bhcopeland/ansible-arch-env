@@ -155,6 +155,7 @@
     - xorg-xsetroot
     - xorg-server
     - xorg-server-devel
+    - xorg-xkill
     - arandr
     - xorg-xinit
     - lightdm
