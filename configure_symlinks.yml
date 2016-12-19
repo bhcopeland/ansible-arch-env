@@ -55,6 +55,7 @@
     - { path: 'sublime-text-2' }
     - { path: 'sublime-text-3' }
     - { path: 'terminator'}
+    - { path: 'terminology'}
     - { path: 'KeePass' }
     - { path: 'transmission' }
     - { path: 'Clementine' }
