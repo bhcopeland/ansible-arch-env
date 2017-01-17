@@ -5,7 +5,7 @@
     name: "{{system_username}}"
     password: "{{user_password|password_hash('sha512') }}"
     state: present
-    groups: "docker,wheel,users,lp,storage,audio,input.sys"
+    groups: "docker,wheel,users,lp,storage,audio,input,sys"
     append: yes
     shell: /bin/zsh
     update_password: always

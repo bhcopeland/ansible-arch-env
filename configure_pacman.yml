@@ -51,35 +51,35 @@
 
 ## infinality font bundle
 
-- name: add infinality-bundle key
-  shell: "pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58"
-  changed_when: false
+#- name: add infinality-bundle key
+#  shell: "pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58"
+#  changed_when: false
 
-- name: add infinality-bundle # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
-  lineinfile:
-    dest: /etc/pacman.conf
-    state: "present"
-    line: "[infinality-bundle]"
+#- name: add infinality-bundle # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
+#  lineinfile:
+#    dest: /etc/pacman.conf
+#    state: "present"
+#    line: "[infinality-bundle]"
 
-- name: add infinality-bundle (cont)
-  lineinfile:
-    dest: /etc/pacman.conf
-    state: present
-    line: "Server = http://bohoomil.com/repo/$arch"
-    insertafter: "^\\[infinality\\-bundle\\]"
+#- name: add infinality-bundle (cont)
+#  lineinfile:
+#    dest: /etc/pacman.conf
+#    state: present
+#    line: "Server = http://bohoomil.com/repo/$arch"
+#    insertafter: "^\\[infinality\\-bundle\\]"
 
-- name: add infinality-bundle-fonts # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
-  lineinfile:
-    dest: /etc/pacman.conf
-    state: present
-    line: "[infinality-bundle-fonts]"
+#- name: add infinality-bundle-fonts # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
+#  lineinfile:
+#    dest: /etc/pacman.conf
+#    state: present
+#    line: "[infinality-bundle-fonts]"
 
-- name: add infinality-bundle-fonts (cont)
-  lineinfile:
-    dest: /etc/pacman.conf
-    state: present
-    line: "Server = http://bohoomil.com/repo/fonts"
-    insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
+#- name: add infinality-bundle-fonts (cont)
+#  lineinfile:
+#    dest: /etc/pacman.conf
+#    state: present
+#    line: "Server = http://bohoomil.com/repo/fonts"
+#    insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
 
 # https://wiki.archlinux.org/index.php/unofficial_user_repositories#alucryd-multilib
 #- name: add steamlibs
@@ -227,9 +227,9 @@
 #    - weechat
 
 # font packages
-    - freetype2-infinality-ultimate
-    - fontconfig-infinality-ultimate
-    - cairo-infinality-ultimate
+    - freetype2
+    - fontconfig
+    - cairo
     - ttf-dejavu
     - noto-fonts
     - noto-fonts-cjk
@@ -259,7 +259,7 @@
     - ranger
     - dos2unix
 #    - grml-zsh-config
-    - terminator
+    - termite
     - git
     - git-review
     - screen
