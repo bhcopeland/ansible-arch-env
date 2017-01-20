@@ -4,36 +4,37 @@
   become: no
   #  ignore_errors: yes
   with_items:
-    - oh-my-zsh-git
+    - apache-tools
     - caffeine-ng
+    - chromium-pepper-flash
+    - dragondisk
+    - flacon #flac
+    - google-chrome
+    - google-talkplugin
     - i3lock-wrapper
-    - pycharm-community
-    - screencloud
-    - roccat-tools-full
-    - spotify
-    - spotify-adkiller-git
-    - teamviewer
-    - whatpulse
+    - imwheel
+    - lib32-librtmp0 #tombraider etc
+    - mpdscribble
     - numix-circle-icon-theme-git
     - numix-icon-theme-git
-    - google-talkplugin
-    - vim-youcompleteme-git
-    - chromium-pepper-flash
-    - ttf-font-awesome
-    - mpdscribble
-    - tor-browser-en
-    - apache-tools
-    - imwheel
-    - sublime-text-dev
+    - oh-my-zsh-git
     - pasystray
-    - ttf-inconsolata-g #terminator
-#    - steam-native
     - powerline-fonts-git #zsh theme agnoster
-    - google-chrome
-    - reflector-timer
+    - purple-facebook
     - purple-skypeweb-git
+    - pycharm-community
+    - polybar
+    - reflector-timer
+    - roccat-tools-full
+    - samsung-printers
+    - screencloud
     - skypeforlinux-bin
-    - lib32-librtmp0 #tombraider etc
-    - samsung-ml1640
-    - flacon #flac
-    - dragondisk
+    - spotify
+    - spotify-adkiller-git
+    - sublime-text-dev
+    - teamviewer
+    - tor-browser-en
+    - ttf-font-awesome
+    - ttf-inconsolata-g #terminator
+    - vim-youcompleteme-git
+    - whatpulse
