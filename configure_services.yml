@@ -19,7 +19,7 @@
     state: started
     enabled: yes
   with_items:
-    - ntpd
+    - ntpdate.service
     - dhcpcd
     - cups-browsed
     - org.cups.cupsd.service
