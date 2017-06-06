@@ -97,7 +97,7 @@
     update_cache: yes
   when: setup_packages.0 is defined
   with_items:
-# system packages 
+# system packages
     - abs
 #    - base-devel #gcc
     - curl
@@ -170,17 +170,21 @@
 #    - i3lock
     - i3status
     - xfce4-notifyd
-    - conky
+#    - conky # (polybar aur)
     - screenfetch
     - numix-themes
     - arc-gtk-theme
-    - arc-icon-theme 
+    - arc-icon-theme
     - lxappearance
     - perl-anyevent-i3
     - perl-json-xs
     - xautolock
     - seahorse
     - dunst
+    - networkmanager
+    - network-manager-applet
+    - networkmanager-openvpn
+    - gsimplecal
 
 # compression packages
     - xarchiver-gtk2
@@ -199,9 +203,7 @@
     - qemu
 
 # file packages
-    - thunar
-    - thunar-media-tags-plugin
-    - thunar-archive-plugin
+    - nautilus
     - ranger
     - gphoto2
     - libgphoto2 #gphoto2
@@ -243,7 +245,7 @@
     - mpd
     - mpc
     - pavucontrol
-    - gstreamer0.10-base-plugins
+#    - gstreamer0.10-base-plugins
     - picard
     - lib32-alsa-plugins
     - mumble
@@ -264,6 +266,8 @@
     - git-review
     - screen
     - tmux
+    - thunderbird
+    - hunspell-en
 
 # Python2 packages
     - python2

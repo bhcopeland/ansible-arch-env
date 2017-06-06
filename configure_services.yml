@@ -24,7 +24,7 @@
     - cups-browsed
     - org.cups.cupsd.service
     - avahi-daemon
-    - lightdm
+    - gdm
     - docker
     - sshd
     - reflector.service

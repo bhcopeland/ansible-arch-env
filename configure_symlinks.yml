@@ -68,6 +68,7 @@
     - { path: 'gtk-2.0' }
     - { path: 'dunst' }
     - { path: 'termite' }
+    - { path: 'polybar' }
   when: setup_owncloud.0 is defined
 
 - name: Ensure scripts scripts is executeable
