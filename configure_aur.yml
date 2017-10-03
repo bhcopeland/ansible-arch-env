@@ -7,7 +7,6 @@
     - apache-tools
     - caffeine-ng
     - chromium-pepper-flash
-    - dragondisk
     - flacon #flac
     - google-chrome
     - google-talkplugin
@@ -22,21 +21,20 @@
     - powerline-fonts-git #zsh theme agnoster
     - purple-facebook
     - purple-skypeweb-git
-    - pycharm-community
+    - atom
     - polybar
     - reflector-timer
     - roccat-tools-full
     - samsung-printers
     - screencloud
+    - imgur-screenshot-git
     - skypeforlinux-bin
     - spotify
     - spotify-adkiller-git
     - sublime-text-dev
-    - teamviewer
     - tor-browser-en
     - ttf-font-awesome
     - ttf-inconsolata-g #terminator
     - vim-youcompleteme-git
-    - whatpulse
     - gifcast
     - dell-srvadmin
