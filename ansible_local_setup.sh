@@ -9,7 +9,6 @@
    vars_files:
      - secrets.yml
    vars_prompt:
-     configure_xf86-video-ati: "Configure configure_xf86-video-ati?"
      configure_xf86-video-amdgpu: "Configure xf86-video-amdgpu?"
      configure_intel: "Configure xf86-video-intel?"
      setup_yaourt: "Setup aur packages?"
@@ -17,7 +16,7 @@
    tasks:
       - name: configure video_drivers
         include: configure_video_drivers.yml
-        when: (configure_intel.0 is defined) or (configure_xf86-video-ati.0 is defined) or (configure_xf86-video-amdgpu is defined)
+        when: (configure_intel.0 is defined) or (configure_xf86-video-amdgpu is defined)
 
       - name: user/sudo and folder creation
         include: configure_user.yml

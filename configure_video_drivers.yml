@@ -18,15 +18,6 @@
     replace: 'xserver-command=X -dpi 120'
   when: configure_intel is defined
 
-- name: install xf86-video-ati
-  pacman:
-    name: "{{item}}"
-    state: latest
-    update_cache: yes
-  with_items:
-    - xf86-video-ati
-  when: configure_xf86-video-ati is defined
-
 - name: install xf86-video-amdgpu
   pacman:
     name: "{{item}}"
