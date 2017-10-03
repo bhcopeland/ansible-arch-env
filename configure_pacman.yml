@@ -1,7 +1,3 @@
-# Download an up-to-date pacman mirror list for Europe
-# add multilib and infinality (fonts) repositories
-# install catalyst drivers, when configure_catalyst is defined
-# install base packages
 ---
 
 - name: Ensure that ~/.gnupg directory exists
@@ -49,56 +45,13 @@
     insertafter: "^\\[multilib\\]"
     regexp: "Include = /etc/pacman.d/mirrorlist"
 
-## infinality font bundle
-
-#- name: add infinality-bundle key
-#  shell: "pacman-key -r 962DDE58 && pacman-key --lsign-key 962DDE58"
-#  changed_when: false
-
-#- name: add infinality-bundle # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
-#  lineinfile:
-#    dest: /etc/pacman.conf
-#    state: "present"
-#    line: "[infinality-bundle]"
-
-#- name: add infinality-bundle (cont)
-#  lineinfile:
-#    dest: /etc/pacman.conf
-#    state: present
-#    line: "Server = http://bohoomil.com/repo/$arch"
-#    insertafter: "^\\[infinality\\-bundle\\]"
-
-#- name: add infinality-bundle-fonts # https://wiki.archlinux.org/index.php/Unofficial_user_repositories#infinality-bundle
-#  lineinfile:
-#    dest: /etc/pacman.conf
-#    state: present
-#    line: "[infinality-bundle-fonts]"
-
-#- name: add infinality-bundle-fonts (cont)
-#  lineinfile:
-#    dest: /etc/pacman.conf
-#    state: present
-#    line: "Server = http://bohoomil.com/repo/fonts"
-#    insertafter: "^\\[infinality\\-bundle\\-fonts\\]"
-
-# https://wiki.archlinux.org/index.php/unofficial_user_repositories#alucryd-multilib
-#- name: add steamlibs
-# blockinfile:
-#    dest: /etc/pacman.conf
-#    insertbefore: "^\\[testing\\]"
-#    block: |
-#      [alucryd-multilib]
-#      Server = http://pkgbuild.com/~alucryd/$repo/x86_64
-
 - name: install pacman packages
   pacman:
     name: "{{item}}"
-    state: latest
     update_cache: yes
   when: setup_packages.0 is defined
   with_items:
 # system packages
-    - abs
 #    - base-devel #gcc
     - curl
     - htop
@@ -172,7 +125,7 @@
     - xfce4-notifyd
 #    - conky # (polybar aur)
     - screenfetch
-    - numix-themes
+    - numix-gtk-theme
     - arc-gtk-theme
     - arc-icon-theme
     - lxappearance
@@ -184,7 +137,6 @@
     - networkmanager
     - network-manager-applet
     - networkmanager-openvpn
-    - gsimplecal
 
 # compression packages
     - xarchiver-gtk2
@@ -212,14 +164,15 @@
 # office packages
     - libreoffice-fresh
     - gthumb
-    - owncloud-client
 #    - chromium #google-chrome aur
+    - pepper-flash
     - transmission-qt
     - variety
     - gnome-keyring
     - vim-jedi
     - gnome-calculator
     - feh
+    - atom
 
 # printing packages
     - cups
@@ -240,7 +193,6 @@
 #    - steam
 #    - steam-libs
     - vlc
-    - kodi
     - ncmpcpp
     - mpd
     - mpc
@@ -284,8 +236,8 @@
 #Steam/Mesa (Graphics)
     - steam-native-runtime
     - mesa
-    - mesa-libgl
-    - lib32-mesa-libgl
+#    - mesa-libgl
+    - lib32-mesa
     - mesa-vdpau
     - sdl2_image
     - sdl_image

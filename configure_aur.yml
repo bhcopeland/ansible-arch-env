@@ -1,15 +1,16 @@
 ---
 - name: install aur packages
+#  command: "pacaur -Qs {{item}}"
   command: "pacaur -S --noconfirm --noedit {{item}}"
   become: no
   #  ignore_errors: yes
   with_items:
     - apache-tools
     - caffeine-ng
-    - chromium-pepper-flash
     - flacon #flac
     - google-chrome
     - google-talkplugin
+    - gsimplecal
     - i3lock-wrapper
     - imwheel
     - lib32-librtmp0 #tombraider etc
@@ -20,9 +21,8 @@
     - pasystray
     - powerline-fonts-git #zsh theme agnoster
     - purple-facebook
-    - purple-skypeweb-git
-    - atom
     - polybar
+    - purple-skypeweb-git
     - reflector-timer
     - roccat-tools-full
     - samsung-printers
@@ -35,6 +35,6 @@
     - tor-browser-en
     - ttf-font-awesome
     - ttf-inconsolata-g #terminator
-    - vim-youcompleteme-git
-    - gifcast
+#    - vim-youcompleteme-git
+#    - gifcast
     - dell-srvadmin

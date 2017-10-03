@@ -9,14 +9,14 @@
   with_items:
     - 20-intel.conf
     - 50-synaptics.conf
-  when: configure_intel is defined
+  when: configure_intel.0 is defined
 
 - name: set dpi settings
   replace:
     dest: "/etc/lightdm/lightdm.conf"
     regexp: '^#xserver-command='
     replace: 'xserver-command=X -dpi 120'
-  when: configure_intel is defined
+  when: configure_intel.0 is defined
 
 - name: install xf86-video-amdgpu
   pacman:
@@ -25,5 +25,4 @@
     update_cache: yes
   with_items:
     - xf86-video-amdgpu
-  when: configure_xf86-video-amdgpu is defined
-
+  when: configure_video_amdgpu.0 is defined
