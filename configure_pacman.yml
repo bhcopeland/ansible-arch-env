@@ -101,7 +101,7 @@
     - gcc-multilib
     - autoconf
     - automake
-    - netdata
+    - sane
 
 # display packages
     - xorg-xbacklight
