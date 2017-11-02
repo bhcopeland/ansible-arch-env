@@ -13,24 +13,24 @@
 - name: setup dotfile symlinks /home/username/.dotfile
   file:
     src: "/home/{{system_username}}/ownCloud/dotfiles/{{ item.path }}"
-    dest: "/home/{{system_username}}/{{ item.path }}"
+    dest: "/home/{{system_username}}/{{ item.dest }}"
     state: link
   with_items:
-    - { path: '.zshrc' }
-    - { path: '.vimrc' }
-    - { path: '.screenlayout' }
-    - { path: '.i3' }
-    - { path: '.purple' }
-    - { path: '.ssh'}
-    - { path: '.boto' }
-    - { path: '.PyCharm50' }
-    - { path: '.mpdscribble' }
-    - { path: '.gist' }
-    - { path: '.gitconfig' }
-    - { path: '.gnupg' }
-    - { path: '.local/share/data/ownCloud/sync-exclude.lst' }
-    - { path: '.imwheelrc' }
-    - { path: '.Xresources' }
+    - { path: '.zshrc', dest: '.zshrc' }
+    - { path: '.vimrc', dest: '.vimrc' }
+    - { path: '.screenlayout', dest: '.screenlayout' }
+    - { path: '.i3', dest: '.i3' }
+    - { path: '.purple', dest: '.purple' }
+    - { path: '.ssh', dest: '.ssh'}
+    - { path: '.boto', dest: '.boto' }
+    - { path: '.mpdscribble', dest: '.mpdscribble' }
+    - { path: '.gist', dest: '.gist' }
+    - { path: '.gitconfig', dest: '.gitconfig' }
+    - { path: '.gnupg', dest: '.gnupg' }
+    - { path: '.local/share/data/ownCloud/sync-exclude.lst', dest: '.local/share/data/ownCloud/sync-exclude.lst' }
+    - { path: '.imwheelrc', dest: '.imwheelrc' }
+    - { path: '.Xresources', dest: '.Xresources' }
+    - { path: '.xprofile', dest: '.screenlayout/current_setup.sh' }
   when: setup_owncloud.0 is defined
 
 - name: setup path symlinks /home/username/
@@ -51,14 +51,7 @@
     dest: "/home/{{system_username}}/.config/{{ item.path }}"
     state: link
   with_items:
-    - { path: 'backintime' }
-    - { path: 'sublime-text-2' }
     - { path: 'sublime-text-3' }
-    - { path: 'terminator'}
-    - { path: 'terminology'}
-    - { path: 'KeePass' }
-    - { path: 'transmission' }
-    - { path: 'Clementine' }
     - { path: 'caffeine' }
     - { path: 'spotify' }
     - { path: 'screencloud' }
@@ -69,6 +62,7 @@
     - { path: 'dunst' }
     - { path: 'termite' }
     - { path: 'polybar' }
+    - { path: 'rofi' }
   when: setup_owncloud.0 is defined
 
 - name: Ensure scripts scripts is executeable
@@ -111,4 +105,3 @@
     - { path: 'id_rsa.pub'}
     - { path: 'id_rsa-aur'}
     - { path: 'id_rsa-aur.pub'}
-    - { path: 'bcweb_dsa'}
