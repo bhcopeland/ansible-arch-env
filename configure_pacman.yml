@@ -83,6 +83,7 @@
     - nfs-utils
     - logrotate
     - openssh
+    - sshpass
     - dnsutils
     - whois
     - wget
@@ -123,7 +124,6 @@
 #    - i3lock
     - i3status
     - xfce4-notifyd
-#    - conky # (polybar aur)
     - screenfetch
     - numix-gtk-theme
     - arc-gtk-theme
