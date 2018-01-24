@@ -121,7 +121,7 @@
     - i3-wm
     - dmenu
     - rofi
-#    - i3lock
+    - i3lock
     - i3status
     - xfce4-notifyd
     - screenfetch

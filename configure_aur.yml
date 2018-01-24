@@ -5,13 +5,11 @@
   become: no
   #  ignore_errors: yes
   with_items:
-    - apache-tools
     - caffeine-ng
     - flacon #flac
     - google-chrome
     - google-talkplugin
     - gsimplecal
-    - i3lock-wrapper
     - imwheel
     - lib32-librtmp0 #tombraider etc
     - mpdscribble
@@ -28,7 +26,7 @@
     - samsung-printers
     - screencloud
     - imgur-screenshot-git
-    - skypeforlinux-bin
+    - skypeforlinux-preview-bin
     - spotify
     - spotify-adkiller-git
     - sublime-text-dev
