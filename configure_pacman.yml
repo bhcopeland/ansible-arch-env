@@ -74,7 +74,6 @@
     - ntp
     - smartmontools
     - strace
-    - dhcpcd
     - dhclient
     - diffutils
     - lm_sensors
@@ -112,10 +111,8 @@
     - xorg-xkill
     - arandr
     - xorg-xinit
-    - lightdm
-    - lightdm-gtk-greeter
-    - lightdm-gtk-greeter-settings
     - redshift
+    - gdm
 
 # window manager packages
     - i3-wm
