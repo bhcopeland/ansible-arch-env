@@ -30,6 +30,7 @@
     - { path: '.local/share/data/ownCloud/sync-exclude.lst', dest: '.local/share/data/ownCloud/sync-exclude.lst' }
     - { path: '.imwheelrc', dest: '.imwheelrc' }
     - { path: '.Xresources', dest: '.Xresources' }
+    - { path: '.rclone.conf', dest: '.rclone.conf' }
     - { path: '.xprofile', dest: '.screenlayout/current_setup.sh' }
   when: setup_owncloud.0 is defined
 

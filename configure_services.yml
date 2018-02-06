@@ -25,6 +25,7 @@
     - gdm
     - docker
     - sshd
+    - systemd-networkd-wait-online
 
 - name: enable user based services
   become: no
