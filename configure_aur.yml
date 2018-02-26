@@ -1,7 +1,7 @@
 ---
 - name: install aur packages
 #  command: "pacaur -Qs {{item}}"
-  command: "pacaur -S --noconfirm --noedit {{item}}"
+  command: "trizen -S --noconfirm --noedit {{item}}"
   become: no
   #  ignore_errors: yes
   with_items:
@@ -11,7 +11,6 @@
     - google-talkplugin
     - gsimplecal
     - imwheel
-    - lib32-librtmp0 #tombraider etc
     - mpdscribble
     - numix-circle-icon-theme-git
     - numix-icon-theme-git
@@ -22,17 +21,17 @@
     - polybar
     - purple-skypeweb-git
     - reflector-timer
-    - roccat-tools-full
+#    - roccat-tools-full
     - samsung-printers
     - screencloud
     - imgur-screenshot-git
     - skypeforlinux-preview-bin
     - spotify
-    - spotify-adkiller-git
+    - blockify
     - sublime-text-dev
     - tor-browser-en
     - ttf-font-awesome-4
     - ttf-inconsolata-g #terminator
 #    - vim-youcompleteme-git
 #    - gifcast
-    - dell-srvadmin
+#    - dell-srvadmin
