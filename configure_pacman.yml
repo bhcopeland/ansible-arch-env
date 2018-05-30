@@ -102,6 +102,7 @@
     - autoconf
     - automake
     - sane
+    - pacman-contrib
 
 # display packages
     - xorg-xbacklight
@@ -120,7 +121,6 @@
     - rofi
     - i3lock
     - i3status
-    - xfce4-notifyd
     - screenfetch
     - numix-gtk-theme
     - arc-gtk-theme
@@ -197,8 +197,8 @@
 #    - gstreamer0.10-base-plugins
     - picard
     - lib32-alsa-plugins
-    - mumble
-    - cheese
+#    - mumble
+#    - cheese
 #    - gstreamer0.10-good-plugins
 #    - gstreamer0.10-bad-plugins
 #    - gstreamer0.10-ugly-plugins
