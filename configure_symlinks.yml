@@ -89,9 +89,6 @@
     - "{{find_results['files'] }}"
     - "{{find_results2['files'] }}"
 
-- name: Ensure .pem keys are 0400
-  shell: "find /home/{{system_username}}/.ssh/*.pem -type f -print0 | xargs -0 chmod 400"
-
 - name: Ensure pub keys are 0400
   file:
     path: "/home/{{system_username}}/.ssh/{{ item.path }}"

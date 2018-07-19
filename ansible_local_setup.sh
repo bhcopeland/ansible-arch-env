@@ -23,13 +23,6 @@
        prompt: "Setup NFS (homeserver)?" #replaced with rclone
 
    tasks:
-      - name: configure video_drivers
-        include: configure_video_drivers.yml
-        when: (configure_intel_mac.0 is defined) or (configure_intel_dell.0 is defined) or (configure_video_amdgpu.0 is defined)
-
-      - name: user/sudo and folder creation
-        include: configure_user.yml
-
       - name: configure pacman/packages
         include: configure_pacman.yml
         when: setup_pacman.0 is defined
@@ -37,6 +30,13 @@
       - name: configure aur
         include: configure_aur.yml
         when: setup_aur.0 is defined
+
+      - name: configure video_drivers
+        include: configure_video_drivers.yml
+        when: (configure_intel_mac.0 is defined) or (configure_intel_dell.0 is defined) or (configure_video_amdgpu.0 is defined)
+
+      - name: user/sudo and folder creation
+        include: configure_user.yml
 
       - name: configure systemd services and etc files
         include: configure_services.yml
