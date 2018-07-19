@@ -31,7 +31,6 @@
     - { path: '.imwheelrc', dest: '.imwheelrc' }
     - { path: '.Xresources', dest: '.Xresources' }
     - { path: '.rclone.conf', dest: '.rclone.conf' }
-    - { path: '.xprofile', dest: '.screenlayout/current_setup.sh' }
   when: setup_owncloud.0 is defined
 
 - name: setup path symlinks /home/username/
@@ -66,31 +65,29 @@
     - { path: 'rofi' }
   when: setup_owncloud.0 is defined
 
-- name: Ensure scripts scripts is executeable
-  file:
-    path: "/home/{{system_username}}/ownCloud/{{ item.path }}"
-    owner: "{{system_username}}"
-    group: "{{system_group}}"
-    mode: 0755
+- name: Find bash scripts to make executeable
+  find:
+    path: "/home/{{system_username}}/ownCloud/dotfiles"
     recurse: yes
-  with_items:
-    - { path: 'Scripts'}
+    patterns: "*.sh"
+  register: find_results
 
-- name: Ensure i3 scripts are executeable
+- name: Find bash scripts to make executeable
+  find:
+    path: "/home/{{system_username}}/ownCloud/config"
+    recurse: yes
+    patterns: "*.sh"
+  register: find_results2
+
+- name: Update files to executeable
   file:
-    path: "/home/{{system_username}}/ownCloud/dotfiles/.i3"
+    path: "{{item['path']}}"
     owner: "{{system_username}}"
     group: "{{system_group}}"
     mode: 0755
-    recurse: yes
   with_items:
-    - { path: 'cputemp.sh'}
-    - { path: 'gputemp.sh'}
-    - { path: 'i3status-conky-launcher'}
-    - { path: 'mpc_toggle.sh'}
-    - { path: 'spotify.sh'}
-    - { path: 'wifistats.sh'}
-    - { path: 'mpd.sh'}
+    - "{{find_results['files'] }}"
+    - "{{find_results2['files'] }}"
 
 - name: Ensure .pem keys are 0400
   shell: "find /home/{{system_username}}/.ssh/*.pem -type f -print0 | xargs -0 chmod 400"

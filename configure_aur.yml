@@ -3,7 +3,7 @@
 #  command: "pacaur -Qs {{item}}"
   command: "trizen -S --noconfirm --noedit {{item}}"
   become: no
-  #  ignore_errors: yes
+  ignore_errors: yes
   with_items:
     - caffeine-ng
     - flacon #flac
@@ -29,7 +29,6 @@
     - spotify
     - blockify
     - sublime-text-dev
-    - tor-browser-en
     - ttf-font-awesome-4
     - ttf-inconsolata-g #terminator
 #    - vim-youcompleteme-git

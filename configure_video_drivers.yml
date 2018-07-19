@@ -1,7 +1,7 @@
 ---
 - name: copy xorg.conf.d for laptop
   copy:
-    src: "files/etc/xorg.conf.d/laptop/{{item}}"
+    src: "files/etc/xorg.conf.d/laptop/mac/{{item}}"
     dest: "/etc/X11/xorg.conf.d/{{item}}"
     owner: root
     group: root
@@ -9,14 +9,20 @@
   with_items:
     - 20-intel.conf
     - 50-synaptics.conf
-  when: configure_intel.0 is defined
+  when: configure_intel_mac.0 is defined
 
-- name: set dpi settings
-  replace:
-    dest: "/etc/lightdm/lightdm.conf"
-    regexp: '^#xserver-command='
-    replace: 'xserver-command=X -dpi 120'
-  when: configure_intel.0 is defined
+- name: copy xorg.conf.d for laptop (dell)
+  copy:
+    src: "files/etc/xorg.conf.d/laptop/dell/{{item}}"
+    dest: "/etc/X11/xorg.conf.d/{{item}}"
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - 20-intel.conf
+    - 50-synaptics.conf
+  when: configure_intel_dell.0 is defined
+
 
 - name: install xf86-video-amdgpu
   pacman:
