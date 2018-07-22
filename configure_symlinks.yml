@@ -15,6 +15,7 @@
     src: "/home/{{system_username}}/ownCloud/dotfiles/{{ item.path }}"
     dest: "/home/{{system_username}}/{{ item.dest }}"
     state: link
+    force: yes
   with_items:
     - { path: '.zshrc', dest: '.zshrc' }
     - { path: '.vimrc', dest: '.vimrc' }

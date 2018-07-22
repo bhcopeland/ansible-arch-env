@@ -1,16 +1,17 @@
 ---
 - name: copy etc files
   copy:
-    src: "./files/etc/{{ item.path }}"
-    dest: "/etc/{{ item.dest }}"
+    src: "./files/etc/{{item.path}}"
+    dest: "/etc/{{item.path}}"
     owner: "{{root_user}}"
     group: "{{root_group}}"
     mode: "0644"
     backup: yes
   with_items:
-     - { path: 'sysctl.d/99-sysctl.conf.j2', dest: 'sysctl.d/99-sysctl.conf' }
-     - { path: 'makepkg.conf', dest: 'makepkg.conf' }
-     - { path: 'fuse.conf', dest: 'fuse.conf' }
+     - { path: 'sysctl.d/99-sysctl.conf.j2' }
+     - { path: 'makepkg.conf' }
+     - { path: 'fuse.conf' }
+     - { path: 'geoclue/geoclue.conf' }
 
 - name: enable default services
   service:
