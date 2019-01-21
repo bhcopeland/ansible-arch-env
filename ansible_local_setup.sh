@@ -35,11 +35,12 @@
         include: configure_video_drivers.yml
         when: (configure_intel_mac.0 is defined) or (configure_intel_dell.0 is defined) or (configure_video_amdgpu.0 is defined)
 
+      - name: configure symlinks
+        include: configure_symlinks.yml
+
       - name: user/sudo and folder creation
         include: configure_user.yml
 
       - name: configure systemd services and etc files
         include: configure_services.yml
 
-      - name: configure symlinks
-        include: configure_symlinks.yml

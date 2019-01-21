@@ -157,6 +157,7 @@
     - gphoto2
     - libgphoto2 #gphoto2
     - gvfs gvfs-gphoto2 gvfs-mtp gvfs-smb # have to be bundled together as they depend on each other
+    - rclone
 
 # office packages
     - libreoffice-fresh

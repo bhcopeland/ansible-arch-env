@@ -19,14 +19,15 @@
     state: started
     enabled: yes
   with_items:
-   # - ntpdate.service
+    - ntpd
     - dhcpcd
     - cups-browsed
-    - org.cups.cupsd.service
+    - org.cups.cupsd
     - avahi-daemon
     - gdm
     - docker
     - sshd
+    - acpid
 
 - name: enable user based services
   become: no
@@ -39,6 +40,7 @@
     - mpd
     - mpdscribble
     - rclone
+  ignore_errors: yes
 
 - name: Ensure gdrive directory exists
   file:

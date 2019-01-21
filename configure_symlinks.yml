@@ -51,6 +51,7 @@
     src: "/home/{{system_username}}/ownCloud/config/{{ item.path }}"
     dest: "/home/{{system_username}}/.config/{{ item.path }}"
     state: link
+    force: yes
   with_items:
     - { path: 'sublime-text-3' }
     - { path: 'caffeine' }

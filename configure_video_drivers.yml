@@ -19,10 +19,18 @@
     group: root
     mode: 0644
   with_items:
-    - 20-intel.conf
-    - 50-synaptics.conf
+    - 40-libinput.conf
   when: configure_intel_dell.0 is defined
 
+- name: install xf86-video-amdgpu
+  pacman:
+    name: "{{item}}"
+    state: latest
+    update_cache: yes
+  with_items:
+    - xf86-input-libinput
+    - libinput
+  when: configure_intel_dell.0 is defined
 
 - name: install xf86-video-amdgpu
   pacman:
