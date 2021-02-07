@@ -112,15 +112,12 @@
     - xorg-xkill
     - arandr
     - xorg-xinit
-    - redshift
     - gdm
 
 # window manager packages
-    - i3-wm
-    - dmenu
+    - sway
     - rofi
-    - i3lock
-    - i3status
+    - swaylock
     - screenfetch
     - numix-gtk-theme
     - arc-gtk-theme
@@ -130,10 +127,10 @@
     - perl-json-xs
     - xautolock
     - seahorse
-    - dunst
     - networkmanager
     - network-manager-applet
     - networkmanager-openvpn
+    - mako
 
 # compression packages
     - xarchiver-gtk2
@@ -176,7 +173,7 @@
     - cups
 
 # chat packages
-    - pidgin
+#   - pidgin
 #    - weechat
 
 # font packages
@@ -186,6 +183,8 @@
     - ttf-dejavu
     - noto-fonts
     - noto-fonts-cjk
+    - ttf-dejavu
+    - ttf-liberation
 
 # gaming/video/music packages
 #    - steam

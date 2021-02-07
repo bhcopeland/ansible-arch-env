@@ -1,15 +1,5 @@
 ---
 
-# - name: setup owncloud
-#   command: "owncloudcmd --user {{owncloud_username}} --password {{owncloud_password}} --non-interactive --trust /home/ben/ownCloud https://bcc.linaro.org/owncloud"
-#   register: setup_owncloud
-
-# - name: launch ownCloud
-#   command: "owncloud &"
-#   when: setup_owncloud|changed
-#   ignore_errors: yes
-#   sudo_user: "{{system_username}}"
-
 - name: setup dotfile symlinks /home/username/.dotfile
   file:
     src: "/home/{{system_username}}/ownCloud/dotfiles/{{ item.path }}"
@@ -20,17 +10,11 @@
     - { path: '.zshrc', dest: '.zshrc' }
     - { path: '.vimrc', dest: '.vimrc' }
     - { path: '.screenlayout', dest: '.screenlayout' }
-    - { path: '.i3', dest: '.i3' }
-    - { path: '.purple', dest: '.purple' }
     - { path: '.ssh', dest: '.ssh'}
-    - { path: '.boto', dest: '.boto' }
     - { path: '.mpdscribble', dest: '.mpdscribble' }
     - { path: '.gist', dest: '.gist' }
     - { path: '.gitconfig', dest: '.gitconfig' }
     - { path: '.gnupg', dest: '.gnupg' }
-    - { path: '.local/share/data/ownCloud/sync-exclude.lst', dest: '.local/share/data/ownCloud/sync-exclude.lst' }
-    - { path: '.imwheelrc', dest: '.imwheelrc' }
-    - { path: '.Xresources', dest: '.Xresources' }
     - { path: '.rclone.conf', dest: '.rclone.conf' }
   when: setup_owncloud.0 is defined
 
@@ -55,7 +39,6 @@
   with_items:
     - { path: 'sublime-text-3' }
     - { path: 'caffeine' }
-    - { path: 'spotify' }
     - { path: 'screencloud' }
     - { path: 'systemd' }
     - { path: 'mpd' }
@@ -65,6 +48,8 @@
     - { path: 'termite' }
     - { path: 'polybar' }
     - { path: 'rofi' }
+    - { path: 'sway' }
+    - { path: 'waybar' }
   when: setup_owncloud.0 is defined
 
 - name: Find bash scripts to make executeable

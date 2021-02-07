@@ -8,9 +8,7 @@
     - caffeine-ng
     - flacon #flac
     - google-chrome
-    - google-talkplugin
     - gsimplecal
-    - imwheel
     - mpdscribble
     - numix-circle-icon-theme-git
     - numix-icon-theme-git
@@ -18,19 +16,21 @@
     - pasystray
     - powerline-fonts-git #zsh theme agnoster
     - purple-facebook
-    - polybar
-    - purple-skypeweb-git
+    - waybar
     - reflector-timer
 #    - roccat-tools-full
     - samsung-printers
-    - screencloud
-    - imgur-screenshot-git
-    - skypeforlinux-preview-bin
+    - grim
     - spotify
-    - blockify
     - sublime-text-dev
     - ttf-font-awesome-4
+    - get_iplayer
+    - rclone-browser
+    - redshift-wayland-git
+    - slack-desktop
+    - wlogout
     - ttf-inconsolata-g #terminator
 #    - vim-youcompleteme-git
 #    - gifcast
 #    - dell-srvadmin
+#
