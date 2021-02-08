@@ -28,6 +28,7 @@
     - docker
     - sshd
     - acpid
+    - fstrim.timer
 
 - name: enable user based services
   become: no
