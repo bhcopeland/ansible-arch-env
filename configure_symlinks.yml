@@ -16,6 +16,8 @@
     - { path: '.gitconfig', dest: '.gitconfig' }
     - { path: '.gnupg', dest: '.gnupg' }
     - { path: '.rclone.conf', dest: '.rclone.conf' }
+    - { path: '.aws', dest: '.aws' }
+
   when: setup_owncloud.0 is defined
 
 - name: setup path symlinks /home/username/
