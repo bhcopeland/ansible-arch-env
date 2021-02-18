@@ -17,6 +17,8 @@
     - { path: '.gnupg', dest: '.gnupg' }
     - { path: '.rclone.conf', dest: '.rclone.conf' }
     - { path: '.aws', dest: '.aws' }
+    - { path: '.atom', dest: '.atom' }
+    - { path: '.password-store', dest: '.password-store' }
 
   when: setup_owncloud.0 is defined
 

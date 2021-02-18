@@ -60,7 +60,6 @@
     - glances
     - sudo
     - zsh
-    - udiskie
     - avahi
     - xbindkeys
     - tlp
@@ -77,10 +76,8 @@
     - dhclient
     - diffutils
     - lm_sensors
-    - jdk8-openjdk
     - fuse-exfat
     - nfs-utils
-    - logrotate
     - openssh
     - sshpass
     - dnsutils
@@ -105,13 +102,13 @@
     - pacman-contrib
 
 # display packages
-    - xorg-xbacklight
-    - xorg-xsetroot
-    - xorg-server
-    - xorg-server-devel
-    - xorg-xkill
-    - arandr
-    - xorg-xinit
+#    - xorg-xbacklight
+      #    - xorg-xsetroot
+      #    - xorg-server
+      #    - xorg-server-devel
+      #    - xorg-xkill
+      #    - arandr
+      #    - xorg-xinit
     - gdm
 
 # window manager packages
@@ -131,6 +128,8 @@
     - network-manager-applet
     - networkmanager-openvpn
     - mako
+    - thunar-volman
+    - thunar
 
 # compression packages
     - xarchiver-gtk2
@@ -147,13 +146,14 @@
     - lxc
     - lxcfs
     - qemu
+    - qemu-arch-extra
 
 # file packages
     - nautilus
     - ranger
     - gphoto2
     - libgphoto2 #gphoto2
-    - gvfs gvfs-gphoto2 gvfs-mtp gvfs-smb # have to be bundled together as they depend on each other
+#    - gvfs gvfs-gphoto2 gvfs-mtp gvfs-smb # have to be bundled together as they depend on each other
     - rclone
 
 # office packages
@@ -161,7 +161,7 @@
     - gthumb
 #    - chromium #google-chrome aur
     - pepper-flash
-    - transmission-qt
+    - deluge-gtk
     - variety
     - gnome-keyring
     - vim-jedi
@@ -215,28 +215,28 @@
     - git-review
     - screen
     - tmux
-    - thunderbird
-    - hunspell-en
+#    - thunderbird
 
 # Python2 packages
-    - python2
-    - ipython2
-    - python2-virtualenv
-    - python2-pip
-    - python2-jedi
+#   - python2
+#    - ipython2
+#    - python2-virtualenv
+#    - python2-pip
  # Python3
     - python
     - python-virtualenv
     - ipython
     - python-pip
+    - pyenv
+    - python-pipenv
 
 #Steam/Mesa (Graphics)
-    - steam-native-runtime
+#    - steam-native-runtime
     - mesa
 #    - mesa-libgl
-    - lib32-mesa
-    - mesa-vdpau
-    - sdl2_image
-    - sdl_image
-    - lib32-sdl
-    - lib32-sdl2
+#    - lib32-mesa
+#    - mesa-vdpau
+#    - sdl2_image
+#    - sdl_image
+#    - lib32-sdl
+#    - lib32-sdl2

@@ -1,6 +1,6 @@
 # ansible-arch-env
 
-To run the playbook: "./ansible_local_setup.sh -i ,". The comma is there by design ;-).
+To run the playbook: "./ansible_local_setup.sh"
 
 Passwords are asked on prompt. If passwords are skipped the step will be skipped.
 
