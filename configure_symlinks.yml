@@ -54,6 +54,7 @@
     - { path: 'rofi' }
     - { path: 'sway' }
     - { path: 'waybar' }
+    - { path: 'rclone' }
   when: setup_owncloud.0 is defined
 
 - name: Find bash scripts to make executeable
