@@ -49,7 +49,7 @@
     - { path: 'gtk-3.0' }
     - { path: 'gtk-2.0' }
     - { path: 'dunst' }
-    - { path: 'termite' }
+    - { path: 'kitty' }
     - { path: 'polybar' }
     - { path: 'rofi' }
     - { path: 'sway' }
