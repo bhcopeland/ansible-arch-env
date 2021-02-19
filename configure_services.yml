@@ -24,7 +24,7 @@
     - cups-browsed
     - org.cups.cupsd
     - avahi-daemon
-    - gdm
+    - ly
     - docker
     - sshd
     - acpid

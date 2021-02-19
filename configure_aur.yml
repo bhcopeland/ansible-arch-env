@@ -1,10 +1,10 @@
 ---
 - name: install aur packages
-#  command: "pacaur -Qs {{item}}"
-  command: "trizen -S --noconfirm --noedit {{item}}"
+  command: "yay --answerclean All --answerdiff All {{item}}"
   become: no
   ignore_errors: yes
   with_items:
+    - ly
     - caffeine-ng
     - flacon #flac
     - google-chrome

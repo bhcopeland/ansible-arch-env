@@ -102,14 +102,14 @@
     - pacman-contrib
 
 # display packages
-#    - xorg-xbacklight
+    - xorg-xwayland
       #    - xorg-xsetroot
       #    - xorg-server
       #    - xorg-server-devel
       #    - xorg-xkill
       #    - arandr
       #    - xorg-xinit
-    - gdm
+      #    - gdm
 
 # window manager packages
     - sway
@@ -210,7 +210,7 @@
     - ranger
     - dos2unix
 #    - grml-zsh-config
-    - termite
+    - kitty
     - git
     - git-review
     - screen
