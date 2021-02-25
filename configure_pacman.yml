@@ -61,7 +61,6 @@
     - sudo
     - zsh
     - avahi
-    - xbindkeys
     - tlp
     - acpi
     - acpid
@@ -103,6 +102,7 @@
 
 # display packages
     - xorg-xwayland
+    - grim #screenshots
       #    - xorg-xsetroot
       #    - xorg-server
       #    - xorg-server-devel
@@ -115,7 +115,6 @@
     - sway
     - rofi
     - swaylock
-    - screenfetch
     - numix-gtk-theme
     - arc-gtk-theme
     - arc-icon-theme

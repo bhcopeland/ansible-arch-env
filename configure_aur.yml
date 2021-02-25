@@ -5,7 +5,7 @@
   ignore_errors: yes
   with_items:
     - ly
-    - caffeine-ng
+#    - caffeine-ng
     - flacon #flac
     - google-chrome
     - gsimplecal
@@ -13,15 +13,13 @@
     - numix-circle-icon-theme-git
     - numix-icon-theme-git
     - oh-my-zsh-git
-    - pasystray
+#    - pasystray
     - powerline-fonts-git #zsh theme agnoster
-    - purple-facebook
+#   - purple-facebook
     - waybar
-    - reflector-timer
     - aws2-wrap
 #    - roccat-tools-full
     - samsung-printers
-    - grim
     - spotify
     - sublime-text-dev
     - ttf-font-awesome-4
@@ -30,7 +28,7 @@
     - redshift-wayland-git
     - slack-desktop
     - wlogout
-    - ttf-inconsolata-g #terminator
+    - safeeyes
 #    - vim-youcompleteme-git
 #    - gifcast
 #    - dell-srvadmin
