@@ -1,0 +1,3 @@
+[submodule "backup/rclone_jobber"]
+	path = backup/rclone_jobber
+	url = https://github.com/wolfv6/rclone_jobber

@@ -1,0 +1,6 @@
++ ownCloud/dotfiles/**
++ ownCloud/config/**
++ ownCloud/Documents/**
++ .ssh/**
+
+- *
